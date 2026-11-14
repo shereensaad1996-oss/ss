@@ -39,8 +39,8 @@
     <div id="dashboard-view" class="hidden min-h-screen p-8">
         <div class="max-w-4xl mx-auto bg-white rounded-xl shadow p-6">
             <h2 class="text-xl font-bold text-slate-800 mb-4">لوحة القيادة والمتابعة</h2>
-                <p id="user-welcome" class="text-slate-600 mb-6"></p>
-                <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">تسجيل الخروج</button>
+            <p id="user-welcome" class="text-slate-600 mb-6"></p>
+            <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">تسجيل الخروج</button>
         </div>
     </div>
 
@@ -60,7 +60,6 @@
         }
 
         // Handle Login Submission
-        document.getElementById('login-form').addEventListener('submit async', async (e) => {});
         document.getElementById('login-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value.trim();
@@ -84,32 +83,19 @@
 
             const user = authData.user;
 
-            // 2. التحقق من وجود المستخدم في جدول الموظفين أو إنشائه تلقائياً لتجنب توقف المنظومة
+            // 2. جلب بيانات الموظف من جدول employees مباشرة
             let { data: employee, error: empError } = await supabaseClient
                 .from('employees')
                 .select('*')
                 .eq('id', user.id)
                 .single();
 
-            if (!employee) {
-                // إنشاء سجل افتراضي للموظف إذا لم يكن موجوداً لتسهيل الدخول
-                const defaultRole = email.includes('tarek') ? 'manager' : 'engineer';
-                const defaultName = email.includes('tarek') ? 'م. طارق العسال' : 'مستخدم النظام';
-                
-                const { data: newEmp, error: insertError } = await supabaseClient
-                    .from('employees')
-                    .insert([{ id: user.id, email: user.email, name: defaultName, role: defaultRole }])
-                    .select()
-                    .single();
-
-                if (insertError) {
-                    alert('الحساب مسجل ولكن تعذر إنشاء سجل الموظف تلقائياً: ' + insertError.message);
-                    return;
-                }
-                employee = newEmp;
+            if (empError || !employee) {
+                alert('الحساب مسجل ولكن لا يوجد له سجل مخصص في جدول الموظفين أو تعذر الجلب: ' + (empError ? empError.message : ''));
+                return;
             }
 
-            // الانتقال إلى لوحة القيادة بنجاح
+            // 3. الانتقال إلى لوحة القيادة بنجاح تام
             document.getElementById('login-view').classList.add('hidden');
             document.getElementById('dashboard-view').classList.remove('hidden');
             document.getElementById('user-welcome').innerText = `مرحباً بك، ${employee.name} (${employee.role}) - البريد: ${employee.email}`;
