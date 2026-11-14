@@ -59,7 +59,24 @@
             console.error('Supabase init error:', e);
         }
 
-        // Handle Login Submission
+        // Login Function synchronized with user_id and maybeSingle
+        async function login(email, password) {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) throw new Error('فشل تسجيل الدخول: ' + error.message);
+
+            const { data: employee, error: empError } = await supabaseClient
+                .from('employees')
+                .select('*')
+                .eq('user_id', data.user.id)
+                .maybeSingle();
+
+            if (empError) throw new Error('تعذر جلب بيانات الموظف: ' + empError.message);
+            if (!employee) throw new Error('لا يوجد سجل موظف لهذا الحساب، تواصل مع المسؤول.');
+
+            return employee;
+        }
+
+        // Handle Login Form Submission
         document.getElementById('login-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value.trim();
@@ -70,35 +87,16 @@
                 return;
             }
 
-            // 1. تسجيل الدخول عبر Supabase Auth
-            const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
-                email: email,
-                password: password
-            });
+            try {
+                const employee = await login(email, password);
 
-            if (authError) {
-                alert('خطأ في تسجيل الدخول: ' + authError.message);
-                return;
+                // الانتقال إلى لوحة القيادة بنجاح تام
+                document.getElementById('login-view').classList.add('hidden');
+                document.getElementById('dashboard-view').classList.remove('hidden');
+                document.getElementById('user-welcome').innerText = `مرحباً بك، ${employee.name || employee.email} (${employee.role}) - البريد: ${employee.email}`;
+            } catch (err) {
+                alert(err.message);
             }
-
-            const user = authData.user;
-
-            // 2. جلب بيانات الموظف من جدول employees مباشرة
-            let { data: employee, error: empError } = await supabaseClient
-                .from('employees')
-                .select('*')
-                .eq('id', user.id)
-                .single();
-
-            if (empError || !employee) {
-                alert('الحساب مسجل ولكن لا يوجد له سجل مخصص في جدول الموظفين أو تعذر الجلب: ' + (empError ? empError.message : ''));
-                return;
-            }
-
-            // 3. الانتقال إلى لوحة القيادة بنجاح تام
-            document.getElementById('login-view').classList.add('hidden');
-            document.getElementById('dashboard-view').classList.remove('hidden');
-            document.getElementById('user-welcome').innerText = `مرحباً بك، ${employee.name} (${employee.role}) - البريد: ${employee.email}`;
         });
 
         // Handle Logout
