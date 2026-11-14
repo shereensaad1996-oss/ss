@@ -1,261 +1,55 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="light">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منظومة إدارة المشروعات والمهام | وزارة الموارد المائية والري</title>
+    <title>منظومة إدارة المشروعات والمهام</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        navy: { 800: '#0f294a', 900: '#091a32', 950: '#051020' },
-                        water: { 50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-                        teal: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
-                    },
-                    fontFamily: { sans: ['Cairo', 'Tajawal', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Supabase JS Client -->
+    <!-- Supabase JS Client CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
-    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+<body class="bg-slate-50 font-sans antialiased">
 
-    <!-- LOGIN SCREEN -->
-    <div id="login-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/90 backdrop-blur-sm hidden">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-md p-8 m-4">
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-900 to-water-700 text-white text-2xl font-bold shadow-lg shadow-water-700/30 mb-4">
-                    <i class="fa-solid fa-water"></i>
-                </div>
-                <h1 class="text-xl font-extrabold text-navy-900 dark:text-white">منظومة إدارة المشروعات والمهام</h1>
-                <p class="text-xs font-semibold text-water-700 dark:text-water-400 mt-1">وزارة الموارد المائية والري - Supabase Cloud</p>
+    <!-- Login Container -->
+    <div id="login-view" class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 border border-slate-100">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-800">منظومة إدارة المشروعات والمهام</h1>
+                <p class="text-sm text-slate-500 mt-2">وزارة الموارد المائية والري - Supabase Cloud</p>
             </div>
-            
-            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">البريد الإلكتروني الوظيفي</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" id="login-email" required placeholder="name@mwri.gov.eg" class="w-full pr-10 pl-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
-                    </div>
-                </div>
 
+            <form id="login-form" class="space-y-6">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">كلمة المرور</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" id="login-password" required placeholder="••••••••" class="w-full pr-10 pl-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
-                        <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-                            <i id="toggle-pwd-icon" class="fa-solid fa-eye"></i>
-                        </button>
-                    </div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">البريد الإلكتروني الوظيفي</label>
+                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="name@mwri-demo.gov.eg">
                 </div>
-
-                <button type="submit" class="w-full py-3 px-4 bg-gradient-to-l from-navy-900 to-water-700 hover:from-navy-800 hover:to-water-600 text-white font-bold rounded-xl shadow-lg shadow-water-700/30 transition duration-200 text-sm">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">كلمة المرور</label>
+                    <input type="password" id="password" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors">
                     تسجيل الدخول إلى المنظومة
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- MAIN APP CONTAINER -->
-    <div id="app-wrapper" class="flex h-screen overflow-hidden hidden">
-        
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="w-64 bg-navy-900 text-slate-100 border-l border-navy-800 flex flex-col transition-all duration-300 z-30 fixed lg:static inset-y-0 right-0 translate-x-full lg:translate-x-0">
-            <div class="h-20 flex items-center justify-between px-5 border-b border-navy-800 bg-navy-950/50">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-water-500 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md"><i class="fa-solid fa-water"></i></div>
-                    <div>
-                        <span class="font-extrabold text-sm tracking-tight text-white block leading-snug">إدارة المشروعات</span>
-                        <span class="text-[10px] text-water-400 font-medium block">الموارد المائية والري</span>
-                    </div>
-                </div>
-                <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-
-            <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-1">
-                <div class="text-[11px] font-bold text-slate-400 px-3 pb-2">القائمة الرئيسية</div>
-                <a href="#dashboard" onclick="switchView('dashboard')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="dashboard"><i class="fa-solid fa-chart-pie w-5 text-center text-water-400"></i> لوحة القيادة والمتابعة</a>
-                <a href="#projects" onclick="switchView('projects')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="projects"><i class="fa-solid fa-folder-open w-5 text-center text-water-400"></i> إدارة المشروعات</a>
-                <a href="#tasks" onclick="switchView('tasks')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="tasks"><i class="fa-solid fa-list-check w-5 text-center text-water-400"></i> المهام والتكليفات</a>
-                <a href="#approvals" onclick="switchView('approvals')" class="nav-item manager-only flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors relative" data-view="approvals">
-                    <i class="fa-solid fa-clipboard-check w-5 text-center text-amber-400"></i> مراجعة واعتماد المهام
-                    <span id="sidebar-approvals-badge" class="mr-auto bg-amber-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold hidden">0</span>
-                </a>
-                <a href="#team" onclick="switchView('team')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="team"><i class="fa-solid fa-users w-5 text-center text-water-400"></i> فريق العمل والإدارات</a>
-
-                <div class="pt-4 text-[11px] font-bold text-slate-400 px-3 pb-2">الأدوات والتقارير</div>
-                <a href="#calendar" onclick="switchView('calendar')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="calendar"><i class="fa-solid fa-calendar-days w-5 text-center text-teal-400"></i> التقويم والجداول الزمنية</a>
-                <a href="#reports" onclick="switchView('reports')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="reports"><i class="fa-solid fa-chart-column w-5 text-center text-teal-400"></i> التقارير والتحليلات</a>
-                <a href="#notifications" onclick="switchView('notifications')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors relative" data-view="notifications">
-                    <i class="fa-solid fa-bell w-5 text-center text-teal-400"></i> الإشعارات والتنبيهات
-                    <span id="sidebar-notif-badge" class="mr-auto bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold hidden">0</span>
-                </a>
-            </nav>
-
-            <div class="p-4 border-t border-navy-800 bg-navy-950/40">
-                <div class="flex items-center gap-3 p-2.5 rounded-xl bg-navy-800/80 border border-navy-700/50">
-                    <div id="sidebar-user-avatar" class="w-10 h-10 rounded-full bg-water-600 text-white flex items-center justify-center font-bold text-sm shrink-0">م</div>
-                    <div class="flex-1 min-w-0">
-                        <h4 id="sidebar-user-name" class="text-xs font-bold text-white truncate">جاري التحميل...</h4>
-                        <p id="sidebar-user-role" class="text-[10px] text-teal-400 font-semibold truncate">-</p>
-                    </div>
-                    <button onclick="handleLogout()" title="تسجيل الخروج" class="text-slate-400 hover:text-red-400 transition-colors p-1.5"><i class="fa-solid fa-right-from-bracket"></i></button>
-                </div>
-            </div>
-        </aside>
-
-        <!-- MAIN CONTENT AREA -->
-        <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-            <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-20">
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-600 dark:text-slate-300 hover:text-navy-900 p-2"><i class="fa-solid fa-bars text-lg"></i></button>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h2 id="page-title" class="text-base sm:text-lg font-extrabold text-navy-900 dark:text-white">لوحة القيادة والمتابعة</h2>
-                            <span class="hidden md:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950 dark:text-water-300 border border-water-200 dark:border-water-800">قاعدة بيانات سحابية (Supabase)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <button onclick="toggleTheme()" class="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="تغيير المظهر"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
-                    <button id="btn-quick-add" onclick="openTaskModal()" class="manager-only hidden sm:inline-flex items-center gap-2 bg-water-600 hover:bg-water-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-water-600/20 transition duration-200"><i class="fa-solid fa-plus"></i> إضافة مهمة</button>
-                </div>
-            </header>
-
-            <main class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-slate-50 dark:bg-slate-950">
-                
-                <!-- VIEW 1: DASHBOARD -->
-                <section id="view-dashboard" class="space-y-6 view-section">
-                    <div id="role-welcome-banner" class="bg-gradient-to-l from-navy-900 via-navy-800 to-water-800 text-white p-5 rounded-2xl shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                            <h3 id="banner-welcome-title" class="text-base font-extrabold">مرحباً بك</h3>
-                            <p id="banner-welcome-desc" class="text-xs text-water-100 mt-1">جاري تحميل بيانات النظام السحابية...</p>
-                        </div>
-                    </div>
-
-                    <div id="dashboard-stats-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm lg:col-span-2">
-                            <h3 id="dashboard-main-section-title" class="font-bold text-sm text-navy-900 dark:text-white mb-4">أحدث المشروعات الجارية</h3>
-                            <div id="dashboard-main-section-content" class="overflow-x-auto"></div>
-                        </div>
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">آخر الأنشطة والتحديثات</h3>
-                            <div id="dashboard-activity-list" class="space-y-3 max-h-80 overflow-y-auto custom-scrollbar"></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- VIEW 2: PROJECTS -->
-                <section id="view-projects" class="space-y-6 view-section hidden">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">إدارة المشروعات</h3>
-                        <button onclick="openProjectModal()" class="manager-only bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md"><i class="fa-solid fa-plus ml-1"></i> مشروع جديد</button>
-                    </div>
-                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-                </section>
-
-                <!-- VIEW 3: TASKS -->
-                <section id="view-tasks" class="space-y-6 view-section hidden">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">المهام والتكليفات</h3>
-                        <button onclick="openTaskModal()" class="manager-only bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md"><i class="fa-solid fa-plus ml-1"></i> مهمة جديدة</button>
-                    </div>
-                    <div id="tasks-container" class="space-y-4"></div>
-                </section>
-
-                <!-- VIEW 4: APPROVALS -->
-                <section id="view-approvals" class="space-y-6 view-section hidden manager-only">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">مركز مراجعة واعتماد المهام</h3>
-                    </div>
-                    <div id="approvals-container" class="space-y-4"></div>
-                </section>
-
-                <!-- VIEW 5: TEAM -->
-                <section id="view-team" class="space-y-6 view-section hidden">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">فريق العمل والإدارات</h3>
-                    </div>
-                    <div id="team-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-                </section>
-
-                <!-- VIEW 6: CALENDAR -->
-                <section id="view-calendar" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center py-12 text-slate-500">
-                        تقويم المواعيد نشط ومتزامن مع المهام والمشروعات.
-                    </div>
-                </section>
-
-                <!-- VIEW 7: REPORTS -->
-                <section id="view-reports" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center py-12 text-slate-500">
-                        تقارير الأداء الفوري مستخرجة من قاعدة البيانات السحابية.
-                    </div>
-                </section>
-
-                <!-- VIEW 8: NOTIFICATIONS -->
-                <section id="view-notifications" class="space-y-6 view-section hidden">
-                    <div id="notifications-container" class="space-y-3"></div>
-                </section>
-
-            </main>
-        </div>
-    </div>
-
-    <!-- MODALS -->
-    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-lg p-6 m-4">
-            <h3 class="font-extrabold text-navy-900 dark:text-white text-sm mb-4">إضافة مشروع جديد</h3>
-            <form id="project-form" onsubmit="saveProject(event)" class="space-y-4">
-                <input type="text" id="project-modal-name" placeholder="اسم المشروع" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                <textarea id="project-modal-desc" placeholder="وصف المشروع" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></textarea>
-                <div class="grid grid-cols-2 gap-3">
-                    <select id="project-modal-dept" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                        <option value="إدارة المشروعات">إدارة المشروعات</option>
-                        <option value="إدارة الموارد المائية">إدارة الموارد المائية</option>
-                        <option value="إدارة الصيانة">إدارة الصيانة</option>
-                    </select>
-                    <select id="project-modal-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                        <option value="نشط">نشط</option>
-                        <option value="مخطط">مخطط</option>
-                        <option value="مكتمل">مكتمل</option>
-                    </select>
-                </div>
-                <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <button type="button" onclick="closeProjectModal()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs">إلغاء</button>
-                    <button type="submit" class="px-4 py-2 bg-water-600 text-white font-bold rounded-xl text-xs">حفظ</button>
-                </div>
-            </form>
+    <!-- Dashboard Container (Hidden by default) -->
+    <div id="dashboard-view" class="hidden min-h-screen p-8">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow p-6">
+            <h2 class="text-xl font-bold text-slate-800 mb-4">لوحة القيادة والمتابعة</h2>
+                <p id="user-welcome" class="text-slate-600 mb-6"></p>
+                <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">تسجيل الخروج</button>
         </div>
     </div>
 
     <!-- JS SCRIPT -->
     <script>
-        // ================= SUPABASE CONFIGURATION =================
+        // ======================= SUPABASE CONFIGURATION =======================
         const SUPABASE_URL = 'https://zyzhysaxebxlenizbxme.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5emh5c2F4ZWJ4bGVuaXpieG1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ2NDg1OTQsImV4cCI6MjExMDIyNDU5NH0.xdSmfIwqYuZTlAUpDgfoYUoGc97NqZvpVYPh_XArYrA';
-        
+
         let supabaseClient = null;
         try {
             if (window.supabase) {
@@ -265,216 +59,71 @@
             console.error('Supabase init error:', e);
         }
 
-        let state = {
-            currentUser: null,
-            currentView: 'dashboard',
-            projects: [],
-            employees: [],
-            tasks: [],
-            notifications: []
-        };
-
-        window.addEventListener('DOMContentLoaded', async () => {
-            await checkAuthSession();
-        });
-
-        async function checkAuthSession() {
-            if (!supabaseClient) return;
-            const { data: { session } } = await supabaseClient.auth.getSession();
-            
-            if (session) {
-                await fetchUserData(session.user.id);
-            } else {
-                document.getElementById('login-screen').classList.remove('hidden');
-                document.getElementById('app-wrapper').classList.add('hidden');
-            }
-        }
-
-        async function handleLogin(e) {
+        // Handle Login Submission
+        document.getElementById('login-form').addEventListener('submit async', async (e) => {});
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const email = document.getElementById('login-email').value.trim();
-            const password = document.getElementById('login-password').value;
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
 
             if (!supabaseClient) {
-                alert('تأكد من ضبط مفاتيح Supabase بشكل صحيح.');
+                alert('فشل الاتصال بقاعدة البيانات');
                 return;
             }
 
-            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-            if (error) {
-                alert('خطأ في تسجيل الدخول: ' + error.message);
-                return;
-            }
-
-            await fetchUserData(data.user.id);
-        }
-
-        async function fetchUserData(userId) {
-            const { data: emp, error } = await supabaseClient.from('employees').select('*').eq('id', userId).single();
-            if (error || !emp) {
-                alert('الحساب مسجل ولكن لا يوجد له سجل مخصص في جدول الموظفين.');
-                return;
-            }
-
-            state.currentUser = emp;
-            await loadDataFromSupabase();
-
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('app-wrapper').classList.remove('hidden');
-
-            updateUIRoles();
-            renderCurrentView();
-            showToast(`مرحباً بك، ${emp.name}`, 'success');
-        }
-
-        async function loadDataFromSupabase() {
-            if (!supabaseClient) return;
-            const [pRes, eRes, tRes, nRes] = await Promise.all([
-                supabaseClient.from('projects').select('*'),
-                supabaseClient.from('employees').select('*'),
-                supabaseClient.from('tasks').select('*'),
-                supabaseClient.from('notifications').select('*')
-            ]);
-
-            if (pRes.data) state.projects = pRes.data;
-            if (eRes.data) state.employees = eRes.data;
-            if (tRes.data) state.tasks = tRes.data;
-            if (nRes.data) state.notifications = nRes.data;
-        }
-
-        async function handleLogout() {
-            if (supabaseClient) await supabaseClient.auth.signOut();
-            location.reload();
-        }
-
-        function updateUIRoles() {
-            if (!state.currentUser) return;
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-
-            document.getElementById('sidebar-user-name').innerText = state.currentUser.name;
-            document.getElementById('sidebar-user-role').innerText = state.currentUser.role;
-            document.getElementById('sidebar-user-avatar').innerText = state.currentUser.avatar || 'م';
-
-            document.querySelectorAll('.manager-only').forEach(el => {
-                if (isAdmin) el.classList.remove('hidden');
-                else el.classList.add('hidden');
+            // 1. تسجيل الدخول عبر Supabase Auth
+            const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
             });
-        }
 
-        function switchView(viewName) {
-            state.currentView = viewName;
-            document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
-            const target = document.getElementById(`view-${viewName}`);
-            if (target) target.classList.remove('hidden');
-            renderCurrentView();
-        }
+            if (authError) {
+                alert('خطأ في تسجيل الدخول: ' + authError.message);
+                return;
+            }
 
-        async function renderCurrentView() {
-            await loadDataFromSupabase();
-            updateUIRoles();
-            if (state.currentView === 'dashboard') renderDashboard();
-            else if (state.currentView === 'projects') renderProjects();
-            else if (state.currentView === 'tasks') renderTasks();
-            else if (state.currentView === 'team') renderTeam();
-            else if (state.currentView === 'approvals') renderApprovalsCenter();
-        }
+            const user = authData.user;
 
-        function renderDashboard() {
-            document.getElementById('banner-welcome-title').innerText = `مرحباً بك، ${state.currentUser.name}`;
-            document.getElementById('banner-welcome-desc').innerText = `أنت مسجل بصلاحية (${state.currentUser.role}). متصل بقاعدة البيانات السحابية بوزارة الموارد المائية والري.`;
+            // 2. التحقق من وجود المستخدم في جدول الموظفين أو إنشائه تلقائياً لتجنب توقف المنظومة
+            let { data: employee, error: empError } = await supabaseClient
+                .from('employees')
+                .select('*')
+                .eq('id', user.id)
+                .single();
 
-            document.getElementById('dashboard-main-section-content').innerHTML = `
-                <table class="w-full text-right text-xs">
-                    <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
-                        <tr><th class="p-3">المشروع</th><th class="p-3">الإدارة</th><th class="p-3">الحالة</th></tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                        ${state.projects.map(p => `<tr><td class="p-3 font-bold">${p.name}</td><td class="p-3">${p.department || p.dept}</td><td class="p-3">${p.status}</td></tr>`).join('')}
-                    </tbody>
-                </table>
-            `;
-        }
+            if (!employee) {
+                // إنشاء سجل افتراضي للموظف إذا لم يكن موجوداً لتسهيل الدخول
+                const defaultRole = email.includes('tarek') ? 'manager' : 'engineer';
+                const defaultName = email.includes('tarek') ? 'م. طارق العسال' : 'مستخدم النظام';
+                
+                const { data: newEmp, error: insertError } = await supabaseClient
+                    .from('employees')
+                    .insert([{ id: user.id, email: user.email, name: defaultName, role: defaultRole }])
+                    .select()
+                    .single();
 
-        function renderProjects() {
-            document.getElementById('projects-container').innerHTML = state.projects.map(p => `
-                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <span class="text-[10px] bg-water-50 text-water-700 px-2 py-0.5 rounded font-bold">${p.department || p.dept}</span>
-                    <h4 class="font-extrabold text-navy-900 dark:text-white text-sm mt-2">${p.name}</h4>
-                    <p class="text-xs text-slate-500 mt-1">${p.description || p.desc || ''}</p>
-                </div>
-            `).join('');
-        }
+                if (insertError) {
+                    alert('الحساب مسجل ولكن تعذر إنشاء سجل الموظف تلقائياً: ' + insertError.message);
+                    return;
+                }
+                employee = newEmp;
+            }
 
-        function renderTasks() {
-            document.getElementById('tasks-container').innerHTML = state.tasks.map(t => `
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
-                    <div><strong class="block text-navy-900 dark:text-white">${t.title}</strong><span class="text-slate-500">المسؤول: ${t.assignee_name || t.assignee}</span></div>
-                    <span class="px-2.5 py-1 bg-water-50 text-water-700 font-bold rounded-lg">${t.status}</span>
-                </div>
-            `).join('');
-        }
+            // الانتقال إلى لوحة القيادة بنجاح
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.remove('hidden');
+            document.getElementById('user-welcome').innerText = `مرحباً بك، ${employee.name} (${employee.role}) - البريد: ${employee.email}`;
+        });
 
-        function renderTeam() {
-            document.getElementById('team-container').innerHTML = state.employees.map(e => `
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
-                    <strong class="text-navy-900 dark:text-white text-sm block mb-1">${e.name}</strong>
-                    <span class="text-slate-500 block">${e.title || 'مهندس'} - ${e.department || ''}</span>
-                    <span class="mt-2 inline-block px-2 py-0.5 bg-water-50 text-water-700 rounded font-bold">${e.role}</span>
-                </div>
-            `).join('');
-        }
-
-        function renderApprovalsCenter() {
-            const pending = state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير');
-            document.getElementById('approvals-container').innerHTML = pending.length === 0 ? '<p class="text-xs text-slate-400">لا توجد مهام بانتظار الاعتماد.</p>' : pending.map(t => `
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
-                    <div><strong class="block text-navy-900 dark:text-white">${t.title}</strong><span>المسؤول: ${t.assignee_name || t.assignee}</span></div>
-                    <button onclick="approveTask('${t.id}')" class="px-3 py-1.5 bg-emerald-600 text-white font-bold rounded-lg">اعتماد نهائي</button>
-                </div>
-            `).join('');
-        }
-
-        async function approveTask(taskId) {
-            if (!supabaseClient) return;
-            await supabaseClient.from('tasks').update({ status: 'مكتملة', progress: 100 }).eq('id', taskId);
-            showToast('تم اعتماد المهمة بنجاح', 'success');
-            renderCurrentView();
-        }
-
-        function openProjectModal() { document.getElementById('project-modal').classList.remove('hidden'); }
-        function closeProjectModal() { document.getElementById('project-modal').classList.add('hidden'); }
-
-        async function saveProject(e) {
-            e.preventDefault();
-            if (!supabaseClient) return;
-            const data = {
-                name: document.getElementById('project-modal-name').value,
-                description: document.getElementById('project-modal-desc').value,
-                department: document.getElementById('project-modal-dept').value,
-                status: document.getElementById('project-modal-status').value,
-                manager_name: state.currentUser.name
-            };
-            await supabaseClient.from('projects').insert([data]);
-            closeProjectModal();
-            renderProjects();
-            showToast('تم حفظ المشروع في Supabase بنجاح', 'success');
-        }
-
-        function openTaskModal() { alert('نافذة إضافة مهمة جديدة'); }
-        function togglePasswordVisibility() {
-            const p = document.getElementById('login-password');
-            p.type = p.type === 'password' ? 'text' : 'password';
-        }
-        function toggleMobileSidebar() { document.getElementById('sidebar').classList.toggle('translate-x-full'); }
-        function toggleTheme() { document.documentElement.classList.toggle('dark'); }
-
-        function showToast(msg, type='success') {
-            const toast = document.createElement('div');
-            toast.className = `fixed bottom-5 left-5 z-50 px-4 py-3 rounded-2xl text-white text-xs font-bold shadow-xl ${type==='success'?'bg-emerald-600':'bg-water-600'}`;
-            toast.innerHTML = msg;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
+        // Handle Logout
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            if (supabaseClient) {
+                await supabaseClient.auth.signOut();
+            }
+            document.getElementById('dashboard-view').classList.add('hidden');
+            document.getElementById('login-view').classList.remove('hidden');
+            document.getElementById('login-form').reset();
+        });
     </script>
 </body>
 </html>
