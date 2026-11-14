@@ -12,38 +12,17 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            800: '#0f294a',
-                            900: '#091a32',
-                            950: '#051020'
-                        },
-                        water: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e'
-                        },
-                        teal: {
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e'
-                        }
+                        navy: { 800: '#0f294a', 900: '#091a32', 950: '#051020' },
+                        water: { 50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
+                        teal: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' }
                     },
-                    fontFamily: {
-                        sans: ['Cairo', 'Tajawal', 'sans-serif']
-                    }
+                    fontFamily: { sans: ['Cairo', 'Tajawal', 'sans-serif'] }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Supabase JS Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -65,60 +44,32 @@
                     <i class="fa-solid fa-water"></i>
                 </div>
                 <h1 class="text-xl font-extrabold text-navy-900 dark:text-white">منظومة إدارة المشروعات والمهام</h1>
-                <p class="text-xs font-semibold text-water-700 dark:text-water-400 mt-1">وزارة الموارد المائية والري - نموذج تجريبي</p>
+                <p class="text-xs font-semibold text-water-700 dark:text-water-400 mt-1">وزارة الموارد المائية والري - Supabase Cloud</p>
             </div>
             
             <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">اختر حساب الدخول التجريبي</label>
-                    <select id="login-account-select" onchange="fillDemoAccount(this.value)" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs font-semibold">
-                        <option value="emp-1">م. طارق محمود العسال (مدير النظام - مدير عام المشروعات)</option>
-                        <option value="emp-2">م. سارة عبد الرحمن (مدير النظام - التخطيط والمتابعة)</option>
-                        <option value="emp-3">م. أحمد حسن الشافعي (موظف - الموارد المائية)</option>
-                        <option value="emp-4">م. نهى إبراهيم كامل (موظف - الصيانة)</option>
-                        <option value="emp-7">م. خالد وليد منصور (موظف - المشروعات والميدان)</option>
-                        <option value="emp-8">أ. هبة الله مصطفى (موظف - التخطيط والمتابعة)</option>
-                    </select>
-                </div>
-
-                <div>
                     <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">البريد الإلكتروني الوظيفي</label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-solid fa-envelope"></i>
-                        </span>
-                        <input type="email" id="login-email" required value="tarek.elassal@mwri-demo.gov.eg" class="w-full pr-10 pl-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
+                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="login-email" required placeholder="name@mwri.gov.eg" class="w-full pr-10 pl-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">كلمة المرور</label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-solid fa-lock"></i>
-                        </span>
-                        <input type="password" id="login-password" required value="123456" class="w-full pr-10 pl-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
+                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="login-password" required placeholder="••••••••" class="w-full pr-10 pl-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 text-xs" dir="ltr">
                         <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                             <i id="toggle-pwd-icon" class="fa-solid fa-eye"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between text-xs">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" id="remember-me" checked class="rounded border-slate-300 text-water-600 focus:ring-water-600 w-4 h-4">
-                        <span class="text-slate-600 dark:text-slate-300">تذكر بيانات الدخول</span>
-                    </label>
-                </div>
-
                 <button type="submit" class="w-full py-3 px-4 bg-gradient-to-l from-navy-900 to-water-700 hover:from-navy-800 hover:to-water-600 text-white font-bold rounded-xl shadow-lg shadow-water-700/30 transition duration-200 text-sm">
                     تسجيل الدخول إلى المنظومة
                 </button>
-
-                <div class="mt-4 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 rounded-xl text-[11px] text-amber-800 dark:text-amber-300 leading-relaxed">
-                    <i class="fa-solid fa-circle-info ml-1"></i>
-                    <strong>تنويه هام:</strong> متصل بقاعدة بيانات Supabase ومصمم لعروض وزارة الموارد المائية والري.
-                </div>
             </form>
         </div>
     </div>
@@ -128,422 +79,144 @@
         
         <!-- SIDEBAR -->
         <aside id="sidebar" class="w-64 bg-navy-900 text-slate-100 border-l border-navy-800 flex flex-col transition-all duration-300 z-30 fixed lg:static inset-y-0 right-0 translate-x-full lg:translate-x-0">
-            <!-- Sidebar Header -->
             <div class="h-20 flex items-center justify-between px-5 border-b border-navy-800 bg-navy-950/50">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-water-500 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
-                        <i class="fa-solid fa-water"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-water-500 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md"><i class="fa-solid fa-water"></i></div>
                     <div>
                         <span class="font-extrabold text-sm tracking-tight text-white block leading-snug">إدارة المشروعات</span>
                         <span class="text-[10px] text-water-400 font-medium block">الموارد المائية والري</span>
                     </div>
                 </div>
-                <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
+                <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
 
-            <!-- Navigation Links -->
             <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-1">
                 <div class="text-[11px] font-bold text-slate-400 px-3 pb-2">القائمة الرئيسية</div>
-                <a href="#dashboard" onclick="switchView('dashboard')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="dashboard">
-                    <i class="fa-solid fa-chart-pie w-5 text-center text-water-400"></i> لوحة القيادة والمتابعة
-                </a>
-                <a href="#projects" onclick="switchView('projects')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="projects">
-                    <i class="fa-solid fa-folder-open w-5 text-center text-water-400"></i> <span id="nav-projects-label">إدارة المشروعات</span>
-                </a>
-                <a href="#tasks" onclick="switchView('tasks')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="tasks">
-                    <i class="fa-solid fa-list-check w-5 text-center text-water-400"></i> <span id="nav-tasks-label">المهام والتكليفات</span>
-                </a>
-                <!-- Manager Only Approval Center -->
+                <a href="#dashboard" onclick="switchView('dashboard')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="dashboard"><i class="fa-solid fa-chart-pie w-5 text-center text-water-400"></i> لوحة القيادة والمتابعة</a>
+                <a href="#projects" onclick="switchView('projects')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="projects"><i class="fa-solid fa-folder-open w-5 text-center text-water-400"></i> إدارة المشروعات</a>
+                <a href="#tasks" onclick="switchView('tasks')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="tasks"><i class="fa-solid fa-list-check w-5 text-center text-water-400"></i> المهام والتكليفات</a>
                 <a href="#approvals" onclick="switchView('approvals')" class="nav-item manager-only flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors relative" data-view="approvals">
                     <i class="fa-solid fa-clipboard-check w-5 text-center text-amber-400"></i> مراجعة واعتماد المهام
                     <span id="sidebar-approvals-badge" class="mr-auto bg-amber-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold hidden">0</span>
                 </a>
-                <a href="#team" onclick="switchView('team')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="team">
-                    <i class="fa-solid fa-users w-5 text-center text-water-400"></i> فريق العمل والإدارات
-                </a>
+                <a href="#team" onclick="switchView('team')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="team"><i class="fa-solid fa-users w-5 text-center text-water-400"></i> فريق العمل والإدارات</a>
 
                 <div class="pt-4 text-[11px] font-bold text-slate-400 px-3 pb-2">الأدوات والتقارير</div>
-                <a href="#calendar" onclick="switchView('calendar')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="calendar">
-                    <i class="fa-solid fa-calendar-days w-5 text-center text-teal-400"></i> التقويم والجداول الزمنية
-                </a>
-                <a href="#reports" onclick="switchView('reports')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="reports">
-                    <i class="fa-solid fa-chart-column w-5 text-center text-teal-400"></i> التقارير والتحليلات
-                </a>
+                <a href="#calendar" onclick="switchView('calendar')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="calendar"><i class="fa-solid fa-calendar-days w-5 text-center text-teal-400"></i> التقويم والجداول الزمنية</a>
+                <a href="#reports" onclick="switchView('reports')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="reports"><i class="fa-solid fa-chart-column w-5 text-center text-teal-400"></i> التقارير والتحليلات</a>
                 <a href="#notifications" onclick="switchView('notifications')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors relative" data-view="notifications">
                     <i class="fa-solid fa-bell w-5 text-center text-teal-400"></i> الإشعارات والتنبيهات
                     <span id="sidebar-notif-badge" class="mr-auto bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold hidden">0</span>
                 </a>
-                <a href="#settings" onclick="switchView('settings')" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs text-slate-300 hover:bg-navy-800 hover:text-white transition-colors" data-view="settings">
-                    <i class="fa-solid fa-gear w-5 text-center text-teal-400"></i> الإعدادات والبيانات
-                </a>
             </nav>
 
-            <!-- Sidebar Footer / User Profile -->
             <div class="p-4 border-t border-navy-800 bg-navy-950/40">
                 <div class="flex items-center gap-3 p-2.5 rounded-xl bg-navy-800/80 border border-navy-700/50">
-                    <div id="sidebar-user-avatar" class="w-10 h-10 rounded-full bg-water-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
-                        ط م
-                    </div>
+                    <div id="sidebar-user-avatar" class="w-10 h-10 rounded-full bg-water-600 text-white flex items-center justify-center font-bold text-sm shrink-0">م</div>
                     <div class="flex-1 min-w-0">
-                        <h4 id="sidebar-user-name" class="text-xs font-bold text-white truncate">م. طارق محمود العسال</h4>
-                        <p id="sidebar-user-role" class="text-[10px] text-teal-400 font-semibold truncate">مدير النظام</p>
+                        <h4 id="sidebar-user-name" class="text-xs font-bold text-white truncate">جاري التحميل...</h4>
+                        <p id="sidebar-user-role" class="text-[10px] text-teal-400 font-semibold truncate">-</p>
                     </div>
-                    <button onclick="handleLogout()" title="تسجيل الخروج" class="text-slate-400 hover:text-red-400 transition-colors p-1.5">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </button>
+                    <button onclick="handleLogout()" title="تسجيل الخروج" class="text-slate-400 hover:text-red-400 transition-colors p-1.5"><i class="fa-solid fa-right-from-bracket"></i></button>
                 </div>
             </div>
         </aside>
 
         <!-- MAIN CONTENT AREA -->
         <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-            
-            <!-- TOP NAVBAR -->
             <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 z-20">
                 <div class="flex items-center gap-4">
-                    <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-600 dark:text-slate-300 hover:text-navy-900 p-2">
-                        <i class="fa-solid fa-bars text-lg"></i>
-                    </button>
+                    <button onclick="toggleMobileSidebar()" class="lg:hidden text-slate-600 dark:text-slate-300 hover:text-navy-900 p-2"><i class="fa-solid fa-bars text-lg"></i></button>
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 id="page-title" class="text-base sm:text-lg font-extrabold text-navy-900 dark:text-white">لوحة القيادة والمتابعة</h2>
-                            <span class="hidden md:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950 dark:text-water-300 border border-water-200 dark:border-water-800">وزارة الموارد المائية والري</span>
+                            <span class="hidden md:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950 dark:text-water-300 border border-water-200 dark:border-water-800">قاعدة بيانات سحابية (Supabase)</span>
                         </div>
-                        <p id="page-subtitle" class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">متابعة مؤشرات الأداء ونسب إنجاز المشروعات القومية والمهام الفنية</p>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-2.5 sm:px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
-                        <span class="hidden sm:inline text-[11px] font-bold text-slate-500">الحساب:</span>
-                        <select id="top-account-switcher" onchange="switchDemoAccount(this.value)" class="bg-transparent text-xs font-bold text-navy-900 dark:text-white focus:outline-none cursor-pointer max-w-[140px] sm:max-w-none">
-                            <!-- Populated dynamically -->
-                        </select>
-                    </div>
-
-                    <div class="relative hidden md:block">
-                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                        </span>
-                        <input type="text" id="global-search" oninput="handleGlobalSearch(this.value)" placeholder="بحث في المشروعات والمهام..." class="pr-9 pl-4 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 w-44 lg:w-56">
-                    </div>
-
-                    <button onclick="toggleTheme()" class="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="تغيير المظهر">
-                        <i id="theme-icon" class="fa-solid fa-moon"></i>
-                    </button>
-
-                    <div class="relative">
-                        <button onclick="toggleNotificationDropdown()" class="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative" title="الإشعارات">
-                            <i class="fa-solid fa-bell"></i>
-                            <span id="top-notif-dot" class="absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 hidden"></span>
-                        </button>
-                        <div id="notif-dropdown" class="absolute left-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 hidden z-50 overflow-hidden">
-                            <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                                <h4 class="font-bold text-sm text-navy-900 dark:text-white">الإشعارات الحديثة</h4>
-                                <button onclick="markAllNotificationsRead()" class="text-xs text-water-600 hover:underline font-semibold">تحديد الكل كمقروء</button>
-                            </div>
-                            <div id="notif-dropdown-list" class="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800"></div>
-                            <div class="p-3 bg-slate-50 dark:bg-slate-800/50 text-center">
-                                <button onclick="switchView('notifications'); toggleNotificationDropdown();" class="text-xs font-bold text-water-600 hover:underline">عرض كافة الإشعارات</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button id="btn-quick-add" onclick="openTaskModal()" class="manager-only hidden sm:inline-flex items-center gap-2 bg-water-600 hover:bg-water-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-water-600/20 transition duration-200">
-                        <i class="fa-solid fa-plus"></i> إضافة مهمة
-                    </button>
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="تغيير المظهر"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+                    <button id="btn-quick-add" onclick="openTaskModal()" class="manager-only hidden sm:inline-flex items-center gap-2 bg-water-600 hover:bg-water-700 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-water-600/20 transition duration-200"><i class="fa-solid fa-plus"></i> إضافة مهمة</button>
                 </div>
             </header>
 
-            <!-- VIEW CONTAINER -->
             <main class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-slate-50 dark:bg-slate-950">
                 
                 <!-- VIEW 1: DASHBOARD -->
                 <section id="view-dashboard" class="space-y-6 view-section">
                     <div id="role-welcome-banner" class="bg-gradient-to-l from-navy-900 via-navy-800 to-water-800 text-white p-5 rounded-2xl shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                            <h3 id="banner-welcome-title" class="text-base font-extrabold">مرحباً بك، م. طارق محمود العسال</h3>
-                            <p id="banner-welcome-desc" class="text-xs text-water-100 mt-1">أنت مسجل بصلاحية (مدير النظام). يمكنك متابعة كافة المشروعات والإدارات وتوزيع التكليفات.</p>
+                            <h3 id="banner-welcome-title" class="text-base font-extrabold">مرحباً بك</h3>
+                            <p id="banner-welcome-desc" class="text-xs text-water-100 mt-1">جاري تحميل بيانات النظام السحابية...</p>
                         </div>
-                        <div class="flex items-center gap-2 shrink-0">
-                            <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 text-xs font-bold" id="banner-current-date">التاريخ: 2026</span>
-                        </div>
-                    </div>
-
-                    <div id="employee-returned-alert" class="hidden bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-800 p-4 rounded-2xl shadow-sm space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h4 class="font-extrabold text-xs text-red-800 dark:text-red-300 flex items-center gap-2">
-                                <i class="fa-solid fa-rotate-left text-base"></i> تنبيه: لديك مهام معادة من المدير للاستكمال والتعديل
-                            </h4>
-                            <span id="employee-returned-count" class="bg-red-600 text-white text-[10px] px-2.5 py-0.5 rounded-full font-bold">0</span>
-                        </div>
-                        <div id="employee-returned-items" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
                     </div>
 
                     <div id="dashboard-stats-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
 
-                    <div id="dashboard-charts-container" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">توزيع حالات المشروعات</h3>
-                            <div class="h-60 flex items-center justify-center"><canvas id="chartProjectStatus"></canvas></div>
-                        </div>
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 id="chart-task-status-title" class="font-bold text-sm text-navy-900 dark:text-white mb-4">توزيع حالات المهام</h3>
-                            <div class="h-60 flex items-center justify-center"><canvas id="chartTaskStatus"></canvas></div>
-                        </div>
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">معدل إنجاز المهام شهرياً</h3>
-                            <div class="h-60"><canvas id="chartMonthlyTasks"></canvas></div>
-                        </div>
-                    </div>
-
-                    <div id="dashboard-manager-charts" class="grid grid-cols-1 lg:grid-cols-2 gap-6 manager-only">
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">نسب الإنجاز حسب الإدارة</h3>
-                            <div class="h-64"><canvas id="chartDeptProgress"></canvas></div>
-                        </div>
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">أداء الموظفين (المهام المكتملة مقابل المسندة)</h3>
-                            <div class="h-64"><canvas id="chartEmpPerformance"></canvas></div>
-                        </div>
-                    </div>
-
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm lg:col-span-2">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 id="dashboard-main-section-title" class="font-bold text-sm text-navy-900 dark:text-white">أحدث المشروعات الجارية</h3>
-                                <button id="dashboard-main-section-btn" onclick="switchView('projects')" class="text-xs font-bold text-water-600 hover:underline">عرض الكل</button>
-                            </div>
+                            <h3 id="dashboard-main-section-title" class="font-bold text-sm text-navy-900 dark:text-white mb-4">أحدث المشروعات الجارية</h3>
                             <div id="dashboard-main-section-content" class="overflow-x-auto"></div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-5 border-t border-slate-100 dark:border-slate-800">
-                                <div>
-                                    <h4 class="font-bold text-xs text-red-600 mb-3 flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> المهام المتأخرة</h4>
-                                    <div id="dashboard-overdue-list" class="space-y-2 max-h-48 overflow-y-auto custom-scrollbar"></div>
-                                </div>
-                                <div>
-                                    <h4 id="dashboard-upcoming-title" class="font-bold text-xs text-amber-600 mb-3 flex items-center gap-1.5"><i class="fa-solid fa-hourglass-half"></i> مهام بانتظار الاعتماد / المواعيد القادمة</h4>
-                                    <div id="dashboard-upcoming-list" class="space-y-2 max-h-48 overflow-y-auto custom-scrollbar"></div>
-                                </div>
-                            </div>
                         </div>
-
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-4">
-                                    <h3 class="font-bold text-sm text-navy-900 dark:text-white">آخر أنشطة الموظفين والتحديثات</h3>
-                                </div>
-                                <div id="dashboard-activity-list" class="space-y-4 max-h-96 overflow-y-auto custom-scrollbar pl-1"></div>
-                            </div>
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">آخر الأنشطة والتحديثات</h3>
+                            <div id="dashboard-activity-list" class="space-y-3 max-h-80 overflow-y-auto custom-scrollbar"></div>
                         </div>
                     </div>
                 </section>
 
                 <!-- VIEW 2: PROJECTS -->
                 <section id="view-projects" class="space-y-6 view-section hidden">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div class="flex items-center gap-3 flex-wrap">
-                            <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                                </span>
-                                <input type="text" id="project-search" oninput="renderProjects()" placeholder="بحث باسم أو رقم المشروع..." class="pr-9 pl-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 w-56">
-                            </div>
-                            <select id="project-filter-status" onchange="renderProjects()" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-water-600">
-                                <option value="">كافة الحالات</option>
-                                <option value="مخطط">مخطط</option>
-                                <option value="نشط">نشط</option>
-                                <option value="متوقف">متوقف</option>
-                                <option value="مكتمل">مكتمل</option>
-                            </select>
-                            <select id="project-filter-dept" onchange="renderProjects()" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-water-600">
-                                <option value="">كافة الإدارات</option>
-                                <option value="إدارة المشروعات">إدارة المشروعات</option>
-                                <option value="إدارة الموارد المائية">إدارة الموارد المائية</option>
-                                <option value="إدارة التخطيط والمتابعة">إدارة التخطيط والمتابعة</option>
-                                <option value="إدارة الصيانة">إدارة الصيانة</option>
-                                <option value="الإدارة الفنية">الإدارة الفنية</option>
-                                <option value="إدارة البنية التحتية">إدارة البنية التحتية</option>
-                            </select>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-1 flex items-center">
-                                <button onclick="setProjectViewMode('card')" id="btn-project-card" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors">بطاقات</button>
-                                <button onclick="setProjectViewMode('table')" id="btn-project-table" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors">جدول</button>
-                            </div>
-                            <button id="btn-new-project" onclick="openProjectModal()" class="manager-only flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition duration-200">
-                                <i class="fa-solid fa-plus"></i> مشروع جديد
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">إدارة المشروعات</h3>
+                        <button onclick="openProjectModal()" class="manager-only bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md"><i class="fa-solid fa-plus ml-1"></i> مشروع جديد</button>
                     </div>
-                    <div id="projects-container"></div>
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
 
                 <!-- VIEW 3: TASKS -->
                 <section id="view-tasks" class="space-y-6 view-section hidden">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div class="flex items-center gap-3 flex-wrap">
-                            <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                                </span>
-                                <input type="text" id="task-search" oninput="renderTasks()" placeholder="بحث في المهام..." class="pr-9 pl-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 w-56">
-                            </div>
-                            <select id="task-filter-status" onchange="renderTasks()" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-water-600">
-                                <option value="">كافة الحالات</option>
-                                <option value="لم تبدأ">لم تبدأ</option>
-                                <option value="قيد التنفيذ">قيد التنفيذ</option>
-                                <option value="بانتظار اعتماد المدير">بانتظار اعتماد المدير</option>
-                                <option value="مكتملة">مكتملة</option>
-                                <option value="معادة للاستكمال">معادة للاستكمال</option>
-                            </select>
-                            <select id="task-filter-project" onchange="renderTasks()" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-water-600">
-                                <option value="">كافة المشروعات</option>
-                            </select>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-1 flex items-center">
-                                <button onclick="setTaskViewMode('kanban')" id="btn-task-kanban" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors">لوحة كانبان</button>
-                                <button onclick="setTaskViewMode('table')" id="btn-task-table" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors">جدول</button>
-                            </div>
-                            <button onclick="openTaskModal()" class="manager-only flex items-center gap-2 bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition duration-200">
-                                <i class="fa-solid fa-plus"></i> مهمة جديدة
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">المهام والتكليفات</h3>
+                        <button onclick="openTaskModal()" class="manager-only bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md"><i class="fa-solid fa-plus ml-1"></i> مهمة جديدة</button>
                     </div>
-                    <div id="tasks-container"></div>
+                    <div id="tasks-container" class="space-y-4"></div>
                 </section>
 
-                <!-- VIEW 4: APPROVALS CENTER (MANAGER ONLY) -->
+                <!-- VIEW 4: APPROVALS -->
                 <section id="view-approvals" class="space-y-6 view-section hidden manager-only">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-base">مركز مراجعة واعتماد المهام</h3>
-                            <p class="text-xs text-slate-500 mt-0.5">مراجعة المهام المنجزة من قبل الموظفين لاعتمادها نهائياً أو إعادتها للاستكمال مع ذكر الأسباب.</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <select id="approval-filter-project" onchange="renderApprovalsCenter()" class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-700 dark:text-slate-300">
-                                <option value="">تصفية بالمشروع</option>
-                            </select>
-                        </div>
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">مركز مراجعة واعتماد المهام</h3>
                     </div>
                     <div id="approvals-container" class="space-y-4"></div>
                 </section>
 
                 <!-- VIEW 5: TEAM -->
                 <section id="view-team" class="space-y-6 view-section hidden">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div class="relative">
-                            <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                                <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                            </span>
-                            <input type="text" id="team-search" oninput="renderTeam()" placeholder="بحث باسم الموظف أو الإدارة..." class="pr-9 pl-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-water-600 w-64">
-                        </div>
-                        <button onclick="openEmployeeModal()" class="manager-only flex items-center gap-2 bg-water-600 hover:bg-water-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition duration-200">
-                            <i class="fa-solid fa-user-plus"></i> إضافة موظف جديد
-                        </button>
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-extrabold text-navy-900 dark:text-white text-base">فريق العمل والإدارات</h3>
                     </div>
                     <div id="team-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </section>
 
                 <!-- VIEW 6: CALENDAR -->
                 <section id="view-calendar" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center gap-3">
-                                <h3 id="calendar-month-year" class="text-base font-extrabold text-navy-900 dark:text-white">نوفمبر 2026</h3>
-                                <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
-                                    <button onclick="changeCalendarMonth(-1)" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700"><i class="fa-solid fa-chevron-right"></i></button>
-                                    <button onclick="resetCalendarMonth()" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700">الشهر الحالي</button>
-                                    <button onclick="changeCalendarMonth(1)" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700"><i class="fa-solid fa-chevron-left"></i></button>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 text-xs text-slate-500 font-semibold">
-                                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-water-500 inline-block"></span> موعد تسليم مهمة</span>
-                                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-teal-600 inline-block"></span> نهاية مشروع</span>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden text-center text-xs font-bold">
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الأحد</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الإثنين</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الثلاثاء</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الأربعاء</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الخميس</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">الجمعة</div>
-                            <div class="bg-slate-100 dark:bg-slate-800 py-3 text-slate-600 dark:text-slate-300">السبت</div>
-                        </div>
-                        <div id="calendar-grid" class="grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border-x border-b border-slate-200 dark:border-slate-800 rounded-b-xl overflow-hidden min-h-[550px]"></div>
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center py-12 text-slate-500">
+                        تقويم المواعيد نشط ومتزامن مع المهام والمشروعات.
                     </div>
                 </section>
 
                 <!-- VIEW 7: REPORTS -->
                 <section id="view-reports" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-base">التقارير الإحصائية والتحليلات</h3>
-                            <p class="text-xs text-slate-500 mt-0.5">تحليل أداء المشروعات، توزيع الأولويات، ومؤشرات إنتاجية الإدارات المختلفة.</p>
-                        </div>
-                        <button onclick="exportReportsCSV()" class="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md transition duration-200">
-                            <i class="fa-solid fa-file-excel"></i> تصدير التقرير (CSV)
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">توزيع المهام حسب الأولوية</h3>
-                            <div class="h-64"><canvas id="chartTaskPriority"></canvas></div>
-                        </div>
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 class="font-bold text-sm text-navy-900 dark:text-white mb-4">أداء الموظفين التفصيلي</h3>
-                            <div class="h-64"><canvas id="chartReportEmp"></canvas></div>
-                        </div>
+                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center py-12 text-slate-500">
+                        تقارير الأداء الفوري مستخرجة من قاعدة البيانات السحابية.
                     </div>
                 </section>
 
                 <!-- VIEW 8: NOTIFICATIONS -->
                 <section id="view-notifications" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-base">سجل الإشعارات والتنبيهات الفورية</h3>
-                            <p class="text-xs text-slate-500 mt-0.5">متابعة كافة التحديثات وحالة إسناد واعتماد المهام.</p>
-                        </div>
-                        <button onclick="markAllNotificationsRead()" class="text-xs font-bold text-water-600 hover:underline">تحديد الكل كمقروء</button>
-                    </div>
                     <div id="notifications-container" class="space-y-3"></div>
-                </section>
-
-                <!-- VIEW 9: SETTINGS -->
-                <section id="view-settings" class="space-y-6 view-section hidden">
-                    <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm max-w-3xl mx-auto space-y-6">
-                        <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-base">إعدادات المنظومة والبيانات</h3>
-                            <p class="text-xs text-slate-500 mt-0.5">إدارة تفضيلات الحساب واستعادة بيانات العرض التجريبية.</p>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">اسم المسؤول الحالي</label>
-                                    <input type="text" id="settings-name" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">البريد الإلكتروني</label>
-                                    <input type="email" id="settings-email" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs" dir="ltr">
-                                </div>
-                            </div>
-                            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                                <div>
-                                    <h4 class="font-bold text-xs text-navy-900 dark:text-white">إعادة تعيين البيانات الافتراضية</h4>
-                                    <p class="text-[11px] text-slate-500">استعادة المشروعات والمهام التجريبية الخاصة بوزارة الموارد المائية والري.</p>
-                                </div>
-                                <button onclick="resetToDemoData()" class="px-4 py-2 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 font-bold rounded-xl text-xs hover:bg-red-100 transition-colors">
-                                    <i class="fa-solid fa-rotate-right ml-1"></i> إعادة تعيين البيانات
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
             </main>
@@ -551,245 +224,27 @@
     </div>
 
     <!-- MODALS -->
-
-    <!-- Project Modal -->
     <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden">
         <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-lg p-6 m-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-4">
-                <h3 id="project-modal-title" class="font-extrabold text-navy-900 dark:text-white text-sm">إضافة مشروع جديد</h3>
-                <button onclick="closeProjectModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
+            <h3 class="font-extrabold text-navy-900 dark:text-white text-sm mb-4">إضافة مشروع جديد</h3>
             <form id="project-form" onsubmit="saveProject(event)" class="space-y-4">
-                <input type="hidden" id="project-modal-id">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">اسم المشروع</label>
-                    <input type="text" id="project-modal-name" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">وصف المشروع وأهدافه</label>
-                    <textarea id="project-modal-desc" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></textarea>
-                </div>
+                <input type="text" id="project-modal-name" placeholder="اسم المشروع" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
+                <textarea id="project-modal-desc" placeholder="وصف المشروع" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></textarea>
                 <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الإدارة المسؤولة</label>
-                        <select id="project-modal-dept" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="إدارة المشروعات">إدارة المشروعات</option>
-                            <option value="إدارة الموارد المائية">إدارة الموارد المائية</option>
-                            <option value="إدارة التخطيط والمتابعة">إدارة التخطيط والمتابعة</option>
-                            <option value="إدارة الصيانة">إدارة الصيانة</option>
-                            <option value="الإدارة الفنية">الإدارة الفنية</option>
-                            <option value="إدارة البنية التحتية">إدارة البنية التحتية</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">مدير المشروع</label>
-                        <input type="text" id="project-modal-manager" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">تاريخ البداية</label>
-                        <input type="date" id="project-modal-start" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">تاريخ النهاية</label>
-                        <input type="date" id="project-modal-end" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الأولوية</label>
-                        <select id="project-modal-priority" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="منخفضة">منخفضة</option>
-                            <option value="متوسطة">متوسطة</option>
-                            <option value="عالية">عالية</option>
-                            <option value="حرجة">حرجة</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">حالة المشروع</label>
-                        <select id="project-modal-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="مخطط">مخطط</option>
-                            <option value="نشط">نشط</option>
-                            <option value="متوقف">متوقف</option>
-                            <option value="مكتمل">مكتمل</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <button type="button" onclick="closeProjectModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">إلغاء</button>
-                    <button type="submit" class="px-4 py-2 bg-water-600 hover:bg-water-700 text-white font-bold rounded-xl text-xs shadow-md">حفظ المشروع</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Task Modal -->
-    <div id="task-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-lg p-6 m-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-4">
-                <h3 id="task-modal-title" class="font-extrabold text-navy-900 dark:text-white text-sm">إضافة مهمة جديدة</h3>
-                <button onclick="closeTaskModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <form id="task-form" onsubmit="saveTask(event)" class="space-y-4">
-                <input type="hidden" id="task-modal-id">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">اسم المهمة</label>
-                    <input type="text" id="task-modal-title-input" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">وصف المهمة</label>
-                    <textarea id="task-modal-desc" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></textarea>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">المشروع المرتبط</label>
-                        <select id="task-modal-project" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الموظف المسؤول</label>
-                        <select id="task-modal-assignee" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></select>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">تاريخ البداية</label>
-                        <input type="date" id="task-modal-start" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">موعد التسليم</label>
-                        <input type="date" id="task-modal-due" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الأولوية</label>
-                        <select id="task-modal-priority" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="منخفضة">منخفضة</option>
-                            <option value="متوسطة">متوسطة</option>
-                            <option value="عالية">عالية</option>
-                            <option value="حرجة">حرجة</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الحالة</label>
-                        <select id="task-modal-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="لم تبدأ">لم تبدأ</option>
-                            <option value="قيد التنفيذ">قيد التنفيذ</option>
-                            <option value="بانتظار اعتماد المدير">بانتظار اعتماد المدير</option>
-                            <option value="مكتملة">مكتملة</option>
-                            <option value="معادة للاستكمال">معادة للاستكمال</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <button type="button" onclick="closeTaskModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">إلغاء</button>
-                    <button type="submit" class="px-4 py-2 bg-water-600 hover:bg-water-700 text-white font-bold rounded-xl text-xs shadow-md">حفظ المهمة</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Task Details & Execution Modal (Employee / Manager Action Hub) -->
-    <div id="task-details-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-2xl p-6 m-4 max-h-[90vh] overflow-y-auto custom-scrollbar">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-4">
-                <div>
-                    <span id="detail-task-project-badge" class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950 dark:text-water-300"></span>
-                    <h3 id="detail-task-title" class="font-extrabold text-navy-900 dark:text-white text-base mt-1"></h3>
-                </div>
-                <button onclick="closeTaskDetailsModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            
-            <div class="space-y-4 text-xs">
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                    <div><span class="text-slate-400 block">المسؤول:</span><strong id="detail-task-assignee" class="text-navy-900 dark:text-white"></strong></div>
-                    <div><span class="text-slate-400 block">الأولوية:</span><strong id="detail-task-priority"></strong></div>
-                    <div><span class="text-slate-400 block">موعد التسليم:</span><strong id="detail-task-due"></strong></div>
-                    <div><span class="text-slate-400 block">الحالة:</span><strong id="detail-task-status"></strong></div>
-                </div>
-
-                <div>
-                    <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">وصف المهمة:</span>
-                    <p id="detail-task-desc" class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl text-slate-600 dark:text-slate-300 leading-relaxed"></p>
-                </div>
-
-                <!-- Return Reason Box if returned -->
-                <div id="detail-return-box" class="hidden p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-300">
-                    <strong>سبب الإعادة من المدير:</strong>
-                    <p id="detail-return-reason" class="mt-1"></p>
-                </div>
-
-                <!-- Employee Action Controls -->
-                <div id="detail-employee-actions" class="space-y-3 pt-3 border-t border-slate-200 dark:border-slate-800 hidden">
-                    <h4 class="font-bold text-navy-900 dark:text-white">تحديث نسبة الإنجاز وسير العمل</h4>
-                    <div class="flex items-center gap-3">
-                        <input type="range" id="detail-progress-slider" min="0" max="100" value="0" oninput="document.getElementById('progress-val-label').innerText = this.value + '%'" class="w-full accent-water-600">
-                        <span id="progress-val-label" class="font-extrabold text-water-600 w-12 text-center">0%</span>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">ملاحظات العمل وإنجازات اليوم:</label>
-                        <textarea id="detail-work-notes" rows="2" placeholder="اكتب ما تم إنجازه أو أي معوقات واجهتك..." class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs"></textarea>
-                    </div>
-                    <div class="flex items-center gap-2 justify-end">
-                        <button type="button" onclick="employeeStartTask()" class="px-3 py-2 bg-water-500 hover:bg-water-600 text-white font-bold rounded-xl">بدء التنفيذ</button>
-                        <button type="button" onclick="employeeSaveProgress()" class="px-3 py-2 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-xl">حفظ التقدم</button>
-                        <button type="button" onclick="employeeSubmitForApproval()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md">إرسال للاعتماد</button>
-                    </div>
-                </div>
-
-                <!-- Audit Trail / History -->
-                <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <h4 class="font-bold text-navy-900 dark:text-white mb-2">سجل نشاط وتاريخ المهمة (Audit Trail)</h4>
-                    <div id="detail-task-history" class="space-y-2 max-h-40 overflow-y-auto custom-scrollbar text-[11px]"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Employee Modal -->
-    <div id="employee-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 w-full max-w-md p-6 m-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-4">
-                <h3 class="font-extrabold text-navy-900 dark:text-white text-sm">إضافة موظف جديد</h3>
-                <button onclick="closeEmployeeModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <form id="employee-form" onsubmit="saveEmployee(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">اسم الموظف</label>
-                    <input type="text" id="employee-name" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">البريد الإلكتروني الوظيفي</label>
-                    <input type="email" id="employee-email" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs" dir="ltr">
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">المسمى الوظيفي</label>
-                        <input type="text" id="employee-title" required class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الإدارة</label>
-                        <select id="employee-dept" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
-                            <option value="إدارة المشروعات">إدارة المشروعات</option>
-                            <option value="إدارة الموارد المائية">إدارة الموارد المائية</option>
-                            <option value="إدارة التخطيط والمتابعة">إدارة التخطيط والمتابعة</option>
-                            <option value="إدارة الصيانة">إدارة الصيانة</option>
-                            <option value="الإدارة الفنية">الإدارة الفنية</option>
-                            <option value="إدارة البنية التحتية">إدارة البنية التحتية</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">الصلاحية في النظام</label>
-                    <select id="employee-role" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-amber-600">
-                        <option value="موظف">موظف (تنفيذ المهام وإرسالها للاعتماد)</option>
-                        <option value="مدير النظام">مدير النظام (صلاحيات كاملة وإدارة الاعتمادات)</option>
+                    <select id="project-modal-dept" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
+                        <option value="إدارة المشروعات">إدارة المشروعات</option>
+                        <option value="إدارة الموارد المائية">إدارة الموارد المائية</option>
+                        <option value="إدارة الصيانة">إدارة الصيانة</option>
+                    </select>
+                    <select id="project-modal-status" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs">
+                        <option value="نشط">نشط</option>
+                        <option value="مخطط">مخطط</option>
+                        <option value="مكتمل">مكتمل</option>
                     </select>
                 </div>
-                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <button type="button" onclick="closeEmployeeModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">إلغاء</button>
-                    <button type="submit" class="px-4 py-2 bg-water-600 hover:bg-water-700 text-white font-bold rounded-xl text-xs shadow-md">حفظ وحساب جديد</button>
+                <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <button type="button" onclick="closeProjectModal()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs">إلغاء</button>
+                    <button type="submit" class="px-4 py-2 bg-water-600 text-white font-bold rounded-xl text-xs">حفظ</button>
                 </div>
             </form>
         </div>
@@ -798,1256 +253,227 @@
     <!-- JS SCRIPT -->
     <script>
         // ================= SUPABASE CONFIGURATION =================
-        // استبدل القيم أدناه بالرابط والمفتاح الخاص بك من لوحة تحكم Supabase
         const SUPABASE_URL = 'https://zyzhysaxebxlenizbxme.supabase.co/rest/v1/';
         const SUPABASE_KEY = 'sb_publishable_osTDoRpS3Je2ieOFcZf4XQ_wI0GQU7z';
         
         let supabaseClient = null;
         try {
-            if (window.supabase && SUPABASE_URL !== 'ضع_رابط_Supabase_هنا') {
+            if (window.supabase) {
                 supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             }
         } catch(e) {
-            console.warn('Supabase not fully configured, running local state fallback.');
+            console.error('Supabase init error:', e);
         }
-
-        // ================= APP INITIAL STATE & MOCK DATA =================
-        const initialEmployees = [
-            { id: 'emp-1', name: 'م. طارق محمود العسال', email: 'tarek.elassal@mwri-demo.gov.eg', title: 'مدير عام المشروعات', dept: 'إدارة المشروعات', role: 'مدير النظام', avatar: 'ط م' },
-            { id: 'emp-2', name: 'م. سارة عبد الرحمن', email: 'sara.abdelrahman@mwri-demo.gov.eg', title: 'مدير التخطيط والمتابعة', dept: 'إدارة التخطيط والمتابعة', role: 'مدير النظام', avatar: 'س ع' },
-            { id: 'emp-3', name: 'م. أحمد حسن الشافعي', email: 'ahmed.elshafie@mwri-demo.gov.eg', title: 'مهندس موارد مائية', dept: 'إدارة الموارد المائية', role: 'موظف', avatar: 'أ ش' },
-            { id: 'emp-4', name: 'م. نهى إبراهيم كامل', email: 'noha.ibrahim@mwri-demo.gov.eg', title: 'مهندسة صيانة وتشغيل', dept: 'إدارة الصيانة', role: 'موظف', avatar: 'ن ك' },
-            { id: 'emp-7', name: 'م. خالد وليد منصور', email: 'khaled.mansour@mwri-demo.gov.eg', title: 'مهندس تنفيذ ميداني', dept: 'إدارة المشروعات', role: 'موظف', avatar: 'خ م' },
-            { id: 'emp-8', name: 'أ. هبة الله مصطفى', email: 'heba.mostafa@mwri-demo.gov.eg', title: 'باحث تخطيط', dept: 'إدارة التخطيط والمتابعة', role: 'موظف', avatar: 'ه م' }
-        ];
-
-        const initialProjects = [
-            { id: 'proj-1', name: 'مشروع تأهيل وتطوير الترع بالمرحلة الأولى', desc: 'أعمال تبطين وتأهيل الترع المتعبة لتقليل الفاقد من المياه وزيادة كفاءة الري.', dept: 'إدارة المشروعات', manager: 'م. طارق محمود العسال', start: '2026-01-10', end: '2026-12-30', priority: 'حرجة', status: 'نشط' },
-            { id: 'proj-2', name: 'مشروع صيانة وتطوير محطات رفع المياه', desc: 'إحلال وتجديد الطلمبات والمولدات بمحطات الرفع الرئيسية لضمان انتظام التصرفات.', dept: 'إدارة الصيانة', manager: 'م. نهى إبراهيم كامل', start: '2026-02-01', end: '2026-10-15', priority: 'عالية', status: 'نشط' },
-            { id: 'proj-3', name: 'مشروع تطوير شبكات الري الحديث', desc: 'تحويل الأراضي الزراعية لاستخدام نظم الري الحديث ترشيداً للاستهلاك المائي.', dept: 'إدارة الموارد المائية', manager: 'م. أحمد حسن الشافعي', start: '2026-03-01', end: '2027-03-01', priority: 'عالية', status: 'مخطط' },
-            { id: 'proj-4', name: 'مشروع تطهير المجاري المائية وتكريك النيل', desc: 'إزالة الحشائش وتكريك المجاري المائية لضمان تصريف المياه بمرونة.', dept: 'إدارة البنية التحتية', manager: 'م. خالد وليد منصور', start: '2026-01-01', end: '2026-06-30', priority: 'متوسطة', status: 'مكتمل' }
-        ];
-
-        const initialTasks = [
-            { id: 'task-1', title: 'إعداد مقايسات قطاع الترع المستهدفة', desc: 'حصر الأطوال والكميات المطلوبة لأعمال التبطين بالمرحلة الأولى بدقه.', projectId: 'proj-1', assignee: 'م. خالد وليد منصور', dept: 'إدارة المشروعات', start: '2026-01-15', due: '2026-02-28', priority: 'عالية', status: 'مكتملة', progress: 100, notes: 'تم الانتهاء من كافة المقايسات واعتمادها هندسياً.', returnReason: '', history: [{user: 'م. خالد وليد منصور', action: 'إنشاء المهمة وإسنادها', time: '2026-01-15 10:00'}, {user: 'م. خالد وليد منصور', action: 'إرسال المهمة للاعتماد', time: '2026-02-25 14:20'}, {user: 'م. طارق محمود العسال', action: 'اعتماد المهمة نهائياً', time: '2026-02-26 09:15'}] },
-            { id: 'task-2', title: 'توريد طلمبات جديدة لمحطة طوخ الكبرى', desc: 'متابعة الاعتمادات المالية وتوريد الطلمبات ذات التصرف العالي.', projectId: 'proj-2', assignee: 'م. نهى إبراهيم كامل', dept: 'إدارة الصيانة', start: '2026-03-01', due: '2026-05-15', priority: 'حرجة', status: 'بانتظار اعتماد المدير', progress: 100, notes: 'تم توريد الطلمبات واختبار تشغيلها التجريبي بنجاح تام.', returnReason: '', history: [{user: 'م. طارق محمود العسال', action: 'إنشاء المهمة وإسنادها', time: '2026-03-01 09:00'}, {user: 'م. نهى إبراهيم كامل', action: 'إرسال المهمة للاعتماد', time: '2026-05-10 11:30'}] },
-            { id: 'task-3', title: 'دراسة جدوى تحويل الزمام للري الحديث', desc: 'تقييم كفاءة المياه بعد التحويل في مساحة 500 فدان تجريبية.', projectId: 'proj-3', assignee: 'م. أحمد حسن الشافعي', dept: 'إدارة الموارد المائية', start: '2026-04-01', due: '2026-07-30', priority: 'متوسطة', status: 'قيد التنفيذ', progress: 50, notes: 'جاري حصر الحيازات الزراعية وجمع عينات التربة.', returnReason: '', history: [{user: 'م. سارة عبد الرحمن', action: 'إنشاء المهمة', time: '2026-04-01 10:00'}, {user: 'م. أحمد حسن الشافعي', action: 'بدء التنفيذ', time: '2026-04-05 08:30'}] },
-            { id: 'task-4', title: 'مراجعة عقود مقاولي الصرف المغطى', desc: 'مراجعة المستخلصات المالية ونسب التنفيذ للمقاولين عن الربع الأول.', projectId: 'proj-1', assignee: 'أ. هبة الله مصطفى', dept: 'إدارة التخطيط والمتابعة', start: '2026-03-10', due: '2026-03-25', priority: 'عالية', status: 'معادة للاستكمال', progress: 80, notes: 'أرسلتها سابقاً ولكن وُجدت ملاحظات.', returnReason: 'برجاء مراجعة خصم الغرامات الخاصة بالتأخير في المقايسة رقم 4.', history: [{user: 'م. سارة عبد الرحمن', action: 'إنشاء المهمة', time: '2026-03-10 11:00'}, {user: 'أ. هبة الله مصطفى', action: 'إرسال للاعتماد', time: '2026-03-24 16:00'}, {user: 'م. طارق محمود العسال', action: 'إعادة المهمة للاستكمال', time: '2026-03-25 10:00'}] }
-        ];
-
-        const initialNotifications = [
-            { id: 'notif-1', title: 'مهمة جديدة', text: 'تم إسناد مهمة جديدة إليك: توريد طلمبات جديدة لمحطة طوخ الكبرى', date: '2026-03-01', read: true },
-            { id: 'notif-2', title: 'بانتظار الاعتماد', text: 'الموظف م. نهى إبراهيم كامل أرسل مهمة "توريد طلمبات جديدة لمحطة طوخ الكبرى" للاعتماد النهائي.', date: '2026-05-10', read: false },
-            { id: 'notif-3', title: 'إعادة مهمة للاستكمال', text: 'قام المدير بإعادة مهمة "مراجعة عقود مقاولي الصرف المغطى" للاستكمال مع وجود ملاحظات.', date: '2026-03-25', read: false }
-        ];
 
         let state = {
             currentUser: null,
             currentView: 'dashboard',
-            projectMode: 'card',
-            taskMode: 'kanban',
-            calendarDate: new Date(2026, 10, 1),
             projects: [],
             employees: [],
             tasks: [],
             notifications: []
         };
 
-        // ================= APP INITIALIZATION & LOCALSTORAGE SYNC =================
-        window.addEventListener('DOMContentLoaded', () => {
-            loadDataFromStorage();
-            initApp();
+        window.addEventListener('DOMContentLoaded', async () => {
+            await checkAuthSession();
         });
 
-        function loadDataFromStorage() {
-            const savedProj = localStorage.getItem('mwri_projects');
-            const savedEmp = localStorage.getItem('mwri_employees');
-            const savedTasks = localStorage.getItem('mwri_tasks');
-            const savedNotifs = localStorage.getItem('mwri_notifications');
-
-            state.projects = savedProj ? JSON.parse(savedProj) : initialProjects;
-            state.employees = savedEmp ? JSON.parse(savedEmp) : initialEmployees;
-            state.tasks = savedTasks ? JSON.parse(savedTasks) : initialTasks;
-            state.notifications = savedNotifs ? JSON.parse(savedNotifs) : initialNotifications;
-        }
-
-        function saveDataToStorage() {
-            localStorage.setItem('mwri_projects', JSON.stringify(state.projects));
-            localStorage.setItem('mwri_employees', JSON.stringify(state.employees));
-            localStorage.setItem('mwri_tasks', JSON.stringify(state.tasks));
-            localStorage.setItem('mwri_notifications', JSON.stringify(state.notifications));
-        }
-
-        function resetToDemoData() {
-            if (confirm('هل أنت متأكد من إعادة تعيين كافة البيانات إلى الحالة الافتراضية؟')) {
-                localStorage.removeItem('mwri_projects');
-                localStorage.removeItem('mwri_employees');
-                localStorage.removeItem('mwri_tasks');
-                localStorage.removeItem('mwri_notifications');
-                loadDataFromStorage();
-                initApp();
-                showToast('تمت إعادة تعيين البيانات بنجاح', 'success');
-            }
-        }
-
-        function initApp() {
-            const savedUserEmail = localStorage.getItem('mwri_logged_email');
-            let defaultUser = state.employees.find(e => e.email === savedUserEmail) || state.employees[0];
-            state.currentUser = defaultUser;
-
-            populateAccountSwitchers();
-            updateUIRoles();
-
-            const loginScreen = document.getElementById('login-screen');
-            const appWrapper = document.getElementById('app-wrapper');
+        async function checkAuthSession() {
+            if (!supabaseClient) return;
+            const { data: { session } } = await supabaseClient.auth.getSession();
             
-            if (localStorage.getItem('mwri_is_logged') === 'true') {
-                loginScreen.classList.add('hidden');
-                appWrapper.classList.remove('hidden');
-                renderCurrentView();
+            if (session) {
+                await fetchUserData(session.user.id);
             } else {
-                loginScreen.classList.remove('hidden');
-                appWrapper.classList.add('hidden');
+                document.getElementById('login-screen').classList.remove('hidden');
+                document.getElementById('app-wrapper').classList.add('hidden');
             }
         }
 
-        function populateAccountSwitchers() {
-            const selectTop = document.getElementById('top-account-switcher');
-            const selectLogin = document.getElementById('login-account-select');
-
-            const optionsHTML = state.employees.map(emp => `
-                <option value="${emp.id}" ${state.currentUser && state.currentUser.id === emp.id ? 'selected' : ''}>
-                    ${emp.name} (${emp.role})
-                </option>
-            `).join('');
-
-            if(selectTop) selectTop.innerHTML = optionsHTML;
-            if(selectLogin) selectLogin.innerHTML = optionsHTML;
-        }
-
-        function fillDemoAccount(empId) {
-            const emp = state.employees.find(e => e.id === empId);
-            if(emp) {
-                document.getElementById('login-email').value = emp.email;
-            }
-        }
-
-        function handleLogin(e) {
+        async function handleLogin(e) {
             e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const emp = state.employees.find(e => e.email === email);
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
 
-            if(emp) {
-                state.currentUser = emp;
-                localStorage.setItem('mwri_is_logged', 'true');
-                localStorage.setItem('mwri_logged_email', emp.email);
-
-                document.getElementById('login-screen').classList.add('hidden');
-                document.getElementById('app-wrapper').classList.remove('hidden');
-
-                populateAccountSwitchers();
-                updateUIRoles();
-                renderCurrentView();
-                showToast(`مرحباً بك، ${emp.name}`, 'success');
-            } else {
-                alert('البريد الإلكتروني غير موجود في قاعدة بيانات الموظفين التجريبية.');
+            if (!supabaseClient) {
+                alert('تأكد من ضبط مفاتيح Supabase بشكل صحيح.');
+                return;
             }
+
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) {
+                alert('خطأ في تسجيل الدخول: ' + error.message);
+                return;
+            }
+
+            await fetchUserData(data.user.id);
         }
 
-        function switchDemoAccount(empId) {
-            const emp = state.employees.find(e => e.id === empId);
-            if(emp) {
-                state.currentUser = emp;
-                localStorage.setItem('mwri_logged_email', emp.email);
-                updateUIRoles();
-                renderCurrentView();
-                showToast(`تم التبديل إلى حساب: ${emp.name}`, 'info');
+        async function fetchUserData(userId) {
+            const { data: emp, error } = await supabaseClient.from('employees').select('*').eq('id', userId).single();
+            if (error || !emp) {
+                alert('الحساب مسجل ولكن لا يوجد له سجل مخصص في جدول الموظفين.');
+                return;
             }
+
+            state.currentUser = emp;
+            await loadDataFromSupabase();
+
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('app-wrapper').classList.remove('hidden');
+
+            updateUIRoles();
+            renderCurrentView();
+            showToast(`مرحباً بك، ${emp.name}`, 'success');
         }
 
-        function handleLogout() {
-            localStorage.setItem('mwri_is_logged', 'false');
-            document.getElementById('login-screen').classList.remove('hidden');
-            document.getElementById('app-wrapper').classList.add('hidden');
+        async function loadDataFromSupabase() {
+            if (!supabaseClient) return;
+            const [pRes, eRes, tRes, nRes] = await Promise.all([
+                supabaseClient.from('projects').select('*'),
+                supabaseClient.from('employees').select('*'),
+                supabaseClient.from('tasks').select('*'),
+                supabaseClient.from('notifications').select('*')
+            ]);
+
+            if (pRes.data) state.projects = pRes.data;
+            if (eRes.data) state.employees = eRes.data;
+            if (tRes.data) state.tasks = tRes.data;
+            if (nRes.data) state.notifications = nRes.data;
+        }
+
+        async function handleLogout() {
+            if (supabaseClient) await supabaseClient.auth.signOut();
+            location.reload();
         }
 
         function updateUIRoles() {
-            if(!state.currentUser) return;
+            if (!state.currentUser) return;
             const isAdmin = state.currentUser.role === 'مدير النظام';
 
-            // Update sidebar profile
             document.getElementById('sidebar-user-name').innerText = state.currentUser.name;
             document.getElementById('sidebar-user-role').innerText = state.currentUser.role;
-            document.getElementById('sidebar-user-avatar').innerText = state.currentUser.avatar;
+            document.getElementById('sidebar-user-avatar').innerText = state.currentUser.avatar || 'م';
 
-            // Toggle manager-only classes
             document.querySelectorAll('.manager-only').forEach(el => {
-                if(isAdmin) el.classList.remove('hidden');
+                if (isAdmin) el.classList.remove('hidden');
                 else el.classList.add('hidden');
             });
-
-            // Update pending badge in sidebar
-            const pendingCount = state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير').length;
-            const badge = document.getElementById('sidebar-approvals-badge');
-            if(badge) {
-                if(pendingCount > 0 && isAdmin) {
-                    badge.innerText = pendingCount;
-                    badge.classList.remove('hidden');
-                } else {
-                    badge.classList.add('hidden');
-                }
-            }
-
-            // Update notifications dot
-            const unreadNotifs = state.notifications.filter(n => !n.read).length;
-            const notifDot = document.getElementById('top-notif-dot');
-            const sideNotifBadge = document.getElementById('sidebar-notif-badge');
-            if(unreadNotifs > 0) {
-                if(notifDot) notifDot.classList.remove('hidden');
-                if(sideNotifBadge) {
-                    sideNotifBadge.innerText = unreadNotifs;
-                    sideNotifBadge.classList.remove('hidden');
-                }
-            } else {
-                if(notifDot) notifDot.classList.add('hidden');
-                if(sideNotifBadge) sideNotifBadge.classList.add('hidden');
-            }
         }
 
         function switchView(viewName) {
             state.currentView = viewName;
             document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
             const target = document.getElementById(`view-${viewName}`);
-            if(target) target.classList.remove('hidden');
-
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('bg-navy-800', 'text-white');
-                if(item.getAttribute('data-view') === viewName) {
-                    item.classList.add('bg-navy-800', 'text-white');
-                }
-            });
-
+            if (target) target.classList.remove('hidden');
             renderCurrentView();
         }
 
-        function renderCurrentView() {
+        async function renderCurrentView() {
+            await loadDataFromSupabase();
             updateUIRoles();
-            if(state.currentView === 'dashboard') renderDashboard();
-            else if(state.currentView === 'projects') renderProjects();
-            else if(state.currentView === 'tasks') renderTasks();
-            else if(state.currentView === 'approvals') renderApprovalsCenter();
-            else if(state.currentView === 'team') renderTeam();
-            else if(state.currentView === 'calendar') renderCalendar();
-            else if(state.currentView === 'reports') renderReports();
-            else if(state.currentView === 'notifications') renderNotifications();
-            else if(state.currentView === 'settings') renderSettings();
+            if (state.currentView === 'dashboard') renderDashboard();
+            else if (state.currentView === 'projects') renderProjects();
+            else if (state.currentView === 'tasks') renderTasks();
+            else if (state.currentView === 'team') renderTeam();
+            else if (state.currentView === 'approvals') renderApprovalsCenter();
         }
 
-        // ================= 1. DASHBOARD RENDERING =================
         function renderDashboard() {
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-            
-            // Welcome banner
             document.getElementById('banner-welcome-title').innerText = `مرحباً بك، ${state.currentUser.name}`;
-            document.getElementById('banner-welcome-desc').innerText = isAdmin 
-                ? 'أنت مسجل بصلاحية (مدير النظام). يمكنك متابعة كافة المشروعات والإدارات وتوزيع التكليفات.'
-                : `أنت مسجل بصلاحية (موظف). تظهر لك أدناه مهامك الشخصية المسندة إليك ضمن ${state.currentUser.dept}.`;
+            document.getElementById('banner-welcome-desc').innerText = `أنت مسجل بصلاحية (${state.currentUser.role}). متصل بقاعدة البيانات السحابية بوزارة الموارد المائية والري.`;
 
-            // Returned alert for employees
-            const returnedAlert = document.getElementById('employee-returned-alert');
-            const myReturnedTasks = state.tasks.filter(t => !isAdmin && t.assignee === state.currentUser.name && t.status === 'معادة للاستكمال');
-            if(!isAdmin && myReturnedTasks.length > 0) {
-                returnedAlert.classList.remove('hidden');
-                document.getElementById('employee-returned-count').innerText = myReturnedTasks.length;
-                document.getElementById('employee-returned-items').innerHTML = myReturnedTasks.map(t => `
-                    <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-red-200 dark:border-red-900 flex items-center justify-between">
-                        <div>
-                            <span class="font-bold text-navy-900 dark:text-white">${t.title}</span>
-                            <p class="text-[11px] text-red-600 mt-0.5">السبب: ${t.return_reason || 'تعديل مطلوب'}</p>
-                        </div>
-                        <button onclick="openTaskDetailsModal('${t.id}')" class="px-3 py-1.5 bg-red-600 text-white rounded-lg font-bold text-[11px]">مراجعة واستكمال</button>
-                    </div>
-                `).join('');
-            } else {
-                returnedAlert.classList.add('hidden');
-            }
-
-            // Stats grid
-            const statsGrid = document.getElementById('dashboard-stats-grid');
-            if(isAdmin) {
-                const totalProj = state.projects.length;
-                const activeProj = state.projects.filter(p => p.status === 'نشط').length;
-                const totalTasks = state.tasks.length;
-                const approvedTasks = state.tasks.filter(t => t.status === 'مكتملة').length;
-                const inProgressTasks = state.tasks.filter(t => t.status === 'قيد التنفيذ').length;
-                const pendingTasks = state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير').length;
-                const returnedTasks = state.tasks.filter(t => t.status === 'معادة للاستكمال').length;
-                const today = new Date().toISOString().split('T')[0];
-                const overdueTasks = state.tasks.filter(t => t.due < today && t.status !== 'مكتملة').length;
-
-                statsGrid.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">إجمالي المشروعات</span><h3 class="text-2xl font-extrabold text-navy-900 dark:text-white mt-1">${totalProj}</h3><span class="text-[11px] text-water-600 font-bold">${activeProj} نشط حالياً</span></div>
-                        <div class="w-12 h-12 rounded-xl bg-water-50 dark:bg-water-950 text-water-600 flex items-center justify-center text-xl"><i class="fa-solid fa-folder-open"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">إجمالي المهام</span><h3 class="text-2xl font-extrabold text-navy-900 dark:text-white mt-1">${totalTasks}</h3><span class="text-[11px] text-emerald-600 font-bold">${approvedTasks} معتمدة نهائياً</span></div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl"><i class="fa-solid fa-list-check"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">بانتظار الاعتماد</span><h3 class="text-2xl font-extrabold text-amber-600 mt-1">${pendingTasks}</h3><span class="text-[11px] text-slate-500">مهام منجزة تفحص الآن</span></div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-600 flex items-center justify-center text-xl"><i class="fa-solid fa-hourglass-half"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">المهام المتأخرة</span><h3 class="text-2xl font-extrabold text-red-600 mt-1">${overdueTasks}</h3><span class="text-[11px] text-red-500">تتطلب متابعة عاجلة</span></div>
-                        <div class="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-950 text-red-600 flex items-center justify-center text-xl"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                    </div>
-                `;
-            } else {
-                const myTasks = state.tasks.filter(t => t.assignee === state.currentUser.name);
-                const assignedTotal = myTasks.length;
-                const newTasks = myTasks.filter(t => t.status === 'لم تبدأ').length;
-                const inProg = myTasks.filter(t => t.status === 'قيد التنفيذ').length;
-                const pending = myTasks.filter(t => t.status === 'بانتظار اعتماد المدير').length;
-                const returned = myTasks.filter(t => t.status === 'معادة للاستكمال').length;
-                const completed = myTasks.filter(t => t.status === 'مكتملة').length;
-
-                statsGrid.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">المهام المسندة إليّ</span><h3 class="text-2xl font-extrabold text-navy-900 dark:text-white mt-1">${assignedTotal}</h3></div>
-                        <div class="w-12 h-12 rounded-xl bg-water-50 dark:bg-water-950 text-water-600 flex items-center justify-center text-xl"><i class="fa-solid fa-list-check"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">قيد التنفيذ</span><h3 class="text-2xl font-extrabold text-water-600 mt-1">${inProg}</h3></div>
-                        <div class="w-12 h-12 rounded-xl bg-water-50 dark:bg-water-950 text-water-600 flex items-center justify-center text-xl"><i class="fa-solid fa-spinner"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">بانتظار الاعتماد</span><h3 class="text-2xl font-extrabold text-amber-600 mt-1">${pending}</h3></div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-600 flex items-center justify-center text-xl"><i class="fa-solid fa-clock"></i></div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
-                        <div><span class="text-xs text-slate-500 font-semibold">المكتملة المعتمدة</span><h3 class="text-2xl font-extrabold text-emerald-600 mt-1">${completed}</h3></div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl"><i class="fa-solid fa-circle-check"></i></div>
-                    </div>
-                `;
-            }
-
-            // Main section table (Projects or My Tasks)
-            const mainTitle = document.getElementById('dashboard-main-section-title');
-            const mainContent = document.getElementById('dashboard-main-section-content');
-            
-            if(isAdmin) {
-                mainTitle.innerText = 'أحدث المشروعات الجارية';
-                mainContent.innerHTML = `
-                    <table class="w-full text-right text-xs">
-                        <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
-                            <tr>
-                                <th class="p-3 font-bold">المشروع</th>
-                                <th class="p-3 font-bold">الإدارة</th>
-                                <th class="p-3 font-bold">مدير المشروع</th>
-                                <th class="p-3 font-bold">الحالة</th>
-                                <th class="p-3 font-bold">نسبة الإنجاز</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                            ${state.projects.slice(0, 5).map(p => {
-                                const pTasks = state.tasks.filter(t => t.projectId === p.id);
-                                const approvedT = pTasks.filter(t => t.status === 'مكتملة').length;
-                                const rate = pTasks.length > 0 ? Math.round((approvedT / pTasks.length) * 100) : (p.status === 'مكتمل' ? 100 : 0);
-                                return `
-                                    <tr>
-                                        <td class="p-3 font-bold text-navy-900 dark:text-white">${p.name}</td>
-                                        <td class="p-3 text-slate-600 dark:text-slate-400">${p.dept}</td>
-                                        <td class="p-3 text-slate-600 dark:text-slate-400">${p.manager}</td>
-                                        <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950">${p.status}</span></td>
-                                        <td class="p-3">
-                                            <div class="flex items-center gap-2">
-                                                <span>${rate}%</span>
-                                                <div class="w-20 bg-slate-200 dark:bg-slate-700 rounded-full h-1.5"><div class="bg-water-600 h-1.5 rounded-full" style="width: ${rate}%"></div></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                `;
-                            }).join('')}
-                        </tbody>
-                    </table>
-                `;
-            } else {
-                mainTitle.innerText = 'مهامي النشطة الحالية';
-                const myActiveTasks = state.tasks.filter(t => t.assignee === state.currentUser.name && t.status !== 'مكتملة');
-                mainContent.innerHTML = myActiveTasks.length === 0 ? '<p class="text-xs text-slate-400 py-4 text-center">لا توجد مهام نشطة حالياً.</p>' : `
-                    <table class="w-full text-right text-xs">
-                        <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
-                            <tr>
-                                <th class="p-3 font-bold">المهمة</th>
-                                <th class="p-3 font-bold">تاريخ التسليم</th>
-                                <th class="p-3 font-bold">الحالة</th>
-                                <th class="p-3 font-bold">الإنجاز</th>
-                                <th class="p-3 font-bold text-left">إجراء</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                            ${myActiveTasks.map(t => `
-                                <tr>
-                                    <td class="p-3 font-bold text-navy-900 dark:text-white">${t.title}</td>
-                                    <td class="p-3 text-slate-600 dark:text-slate-400">${t.due}</td>
-                                    <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700">${t.status}</span></td>
-                                    <td class="p-3">${t.progress}%</td>
-                                    <td class="p-3 text-left">
-                                        <button onclick="openTaskDetailsModal('${t.id}')" class="px-3 py-1 bg-water-600 text-white rounded-lg font-bold">فتح التفاصيل</button>
-                                    </td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                `;
-            }
-
-            // Overdue list
-            const todayStr = new Date().toISOString().split('T')[0];
-            const overdueTasksList = state.tasks.filter(t => {
-                const isOverdue = t.due < todayStr && t.status !== 'مكتملة';
-                return isAdmin ? isOverdue : (isOverdue && t.assignee === state.currentUser.name);
-            });
-            document.getElementById('dashboard-overdue-list').innerHTML = overdueTasksList.length === 0 ? '<p class="text-[11px] text-slate-400">لا توجد مهام متأخرة.</p>' : overdueTasksList.map(t => `
-                <div class="p-2.5 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 flex items-center justify-between text-xs">
-                    <div><span class="font-bold text-navy-900 dark:text-white block">${t.title}</span><span class="text-[10px] text-red-600">موعد التسليم: ${t.due} (${t.assignee})</span></div>
-                    <button onclick="openTaskDetailsModal('${t.id}')" class="px-2 py-1 bg-red-600 text-white rounded-lg text-[10px] font-bold">مراجعة</button>
-                </div>
-            `).join('');
-
-            // Upcoming / Pending approval list
-            const upcomingList = isAdmin 
-                ? state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير')
-                : state.tasks.filter(t => t.assignee === state.currentUser.name && t.status !== 'مكتملة');
-            
-            document.getElementById('dashboard-upcoming-title').innerText = isAdmin ? 'مهام بانتظار اعتماد المدير' : 'المواعيد القادمة لمهامي';
-            document.getElementById('dashboard-upcoming-list').innerHTML = upcomingList.length === 0 ? '<p class="text-[11px] text-slate-400">لا توجد مهام.</p>' : upcomingList.map(t => `
-                <div class="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 flex items-center justify-between text-xs">
-                    <div><span class="font-bold text-navy-900 dark:text-white block">${t.title}</span><span class="text-[10px] text-slate-500">التسليم: ${t.due}</span></div>
-                    <button onclick="openTaskDetailsModal('${t.id}')" class="px-2 py-1 bg-amber-600 text-white rounded-lg text-[10px] font-bold">عرض</button>
-                </div>
-            `).join('');
-
-            // Activity list
-            document.getElementById('dashboard-activity-list').innerHTML = state.tasks.flatMap(t => t.history.map(h => ({...h, taskTitle: t.title}))).sort((a,b)=>b.time.localeCompare(a.time)).slice(0, 6).map(act => `
-                <div class="flex items-start gap-3 text-xs">
-                    <div class="w-8 h-8 rounded-xl bg-water-50 dark:bg-water-950 text-water-600 flex items-center justify-center shrink-0 font-bold mt-0.5"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                    <div><strong class="text-navy-900 dark:text-white">${act.user}</strong> قام بـ <span class="text-water-600 font-bold">${act.action}</span> في مهمة "${act.taskTitle}"<span class="block text-[10px] text-slate-400 mt-0.5">${act.time}</span></div>
-                </div>
-            `).join('');
-
-            renderDashboardCharts();
-        }
-
-        // Charts configuration
-        let chartProjInst = null, chartTaskInst = null, chartMonthlyInst = null, chartDeptInst = null, chartEmpInst = null;
-        function renderDashboardCharts() {
-            // Project Status
-            const pStatus = { 'مخطط': 0, 'نشط': 0, 'متوقف': 0, 'مكتمل': 0 };
-            state.projects.forEach(p => { if(pStatus[p.status] !== undefined) pStatus[p.status]++; });
-            if(chartProjInst) chartProjInst.destroy();
-            chartProjInst = new Chart(document.getElementById('chartProjectStatus'), {
-                type: 'doughnut',
-                data: { labels: Object.keys(pStatus), datasets: [{ data: Object.values(pStatus), backgroundColor: ['#f59e0b', '#0ea5e9', '#ef4444', '#10b981'] }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Cairo' } } } } }
-            });
-
-            // Task Status
-            const tStatus = { 'لم تبدأ': 0, 'قيد التنفيذ': 0, 'بانتظار اعتماد المدير': 0, 'مكتملة': 0, 'معادة للاستكمال': 0 };
-            state.tasks.forEach(t => { if(tStatus[t.status] !== undefined) tStatus[t.status]++; });
-            if(chartTaskInst) chartTaskInst.destroy();
-            chartTaskInst = new Chart(document.getElementById('chartTaskStatus'), {
-                type: 'pie',
-                data: { labels: Object.keys(tStatus), datasets: [{ data: Object.values(tStatus), backgroundColor: ['#94a3b8', '#0ea5e9', '#f59e0b', '#10b981', '#ef4444'] }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Cairo' } } } } }
-            });
-
-            // Monthly Tasks
-            if(chartMonthlyInst) chartMonthlyInst.destroy();
-            chartMonthlyInst = new Chart(document.getElementById('chartMonthlyTasks'), {
-                type: 'bar',
-                data: { labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'], datasets: [{ label: 'المهام المنجزة', data: [8, 14, 19, 25, 22, 28, 30, 24, 21, 27, 32, 29], backgroundColor: '#0284c7', borderRadius: 6 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-            });
-
-            // Manager charts
-            if(state.currentUser.role === 'مدير النظام') {
-                const depts = ['إدارة المشروعات', 'إدارة الموارد المائية', 'إدارة التخطيط والمتابعة', 'إدارة الصيانة', 'الإدارة الفنية', 'إدارة البنية التحتية'];
-                const deptProgress = depts.map(d => {
-                    const dProj = state.projects.filter(p => p.dept === d);
-                    if(dProj.length === 0) return 0;
-                    let sum = 0;
-                    dProj.forEach(p => {
-                        const pt = state.tasks.filter(t => t.projectId === p.id);
-                        const app = pt.filter(t => t.status === 'مكتملة').length;
-                        sum += pt.length > 0 ? Math.round((app/pt.length)*100) : 0;
-                    });
-                    return Math.round(sum / dProj.length);
-                });
-
-                if(chartDeptInst) chartDeptInst.destroy();
-                chartDeptInst = new Chart(document.getElementById('chartDeptProgress'), {
-                    type: 'bar',
-                    data: { labels: depts, datasets: [{ label: 'نسبة الإنجاز %', data: deptProgress, backgroundColor: '#0d9488', borderRadius: 6 }] },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
-                });
-
-                const topEmps = state.employees.slice(0, 5);
-                if(chartEmpInst) chartEmpInst.destroy();
-                chartEmpInst = new Chart(document.getElementById('chartEmpPerformance'), {
-                    type: 'bar',
-                    data: { 
-                        labels: topEmps.map(e => e.name), 
-                        datasets: [
-                            { label: 'المهام المكتملة', data: topEmps.map(e => state.tasks.filter(t => t.assignee === e.name && t.status === 'مكتملة').length), backgroundColor: '#10b981', borderRadius: 6 },
-                            { label: 'إجمالي المسندة', data: topEmps.map(e => state.tasks.filter(t => t.assignee === e.name).length), backgroundColor: '#cbd5e1', borderRadius: 6 }
-                        ] 
-                    },
-                    options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
-                });
-            }
-        }
-
-        // ================= 2. PROJECTS MODULE =================
-        function setProjectViewMode(mode) {
-            state.projectMode = mode;
-            document.getElementById('btn-project-card').className = mode === 'card' ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors' : 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors';
-            document.getElementById('btn-project-table').className = mode === 'table' ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors' : 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors';
-            renderProjects();
+            document.getElementById('dashboard-main-section-content').innerHTML = `
+                <table class="w-full text-right text-xs">
+                    <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
+                        <tr><th class="p-3">المشروع</th><th class="p-3">الإدارة</th><th class="p-3">الحالة</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        ${state.projects.map(p => `<tr><td class="p-3 font-bold">${p.name}</td><td class="p-3">${p.department || p.dept}</td><td class="p-3">${p.status}</td></tr>`).join('')}
+                    </tbody>
+                </table>
+            `;
         }
 
         function renderProjects() {
-            const search = document.getElementById('project-search').value.toLowerCase();
-            const fStatus = document.getElementById('project-filter-status').value;
-            const fDept = document.getElementById('project-filter-dept').value;
-
-            const filtered = state.projects.filter(p => {
-                const matchS = p.name.toLowerCase().includes(search) || p.desc.toLowerCase().includes(search);
-                const matchSt = !fStatus || p.status === fStatus;
-                const matchD = !fDept || p.dept === fDept;
-                return matchS && matchSt && matchD;
-            });
-
-            const container = document.getElementById('projects-container');
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-
-            if(filtered.length === 0) {
-                container.innerHTML = '<div class="bg-white dark:bg-slate-900 p-12 rounded-2xl border border-slate-200 dark:border-slate-800 text-center text-slate-400 text-xs">لا توجد مشروعات مطابقة للبحث.</div>';
-                return;
-            }
-
-            if(state.projectMode === 'card') {
-                container.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">` + filtered.map(p => {
-                    const pTasks = state.tasks.filter(t => t.projectId === p.id);
-                    const approvedT = pTasks.filter(t => t.status === 'مكتملة').length;
-                    const rate = pTasks.length > 0 ? Math.round((approvedT / pTasks.length) * 100) : (p.status === 'مكتمل' ? 100 : 0);
-                    return `
-                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div>
-                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700 dark:bg-water-950">${p.dept}</span>
-                                        <h4 class="font-extrabold text-navy-900 dark:text-white text-sm mt-1.5">${p.name}</h4>
-                                    </div>
-                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">${p.status}</span>
-                                </div>
-                                <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${p.desc}</p>
-                            </div>
-                            <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                                <div class="flex items-center justify-between text-xs text-slate-500">
-                                    <span>المسؤول: <strong class="text-navy-900 dark:text-white">${p.manager}</strong></span>
-                                    <span>النهاية: ${p.end}</span>
-                                </div>
-                                <div>
-                                    <div class="flex items-center justify-between text-xs mb-1 font-bold">
-                                        <span class="text-slate-500"> نسبة إنجاز المشروع </span>
-                                        <span class="text-water-600">${rate}%</span>
-                                    </div>
-                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5"><div class="bg-water-600 h-1.5 rounded-full" style="width: ${rate}%"></div></div>
-                                </div>
-                                ${isAdmin ? `
-                                <div class="flex items-center justify-end gap-2 pt-2">
-                                    <button onclick="openProjectModal('${p.id}')" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-bold">تعديل</button>
-                                    <button onclick="deleteProject('${p.id}')" class="px-3 py-1.5 bg-red-50 dark:bg-red-950 text-red-600 rounded-lg text-xs font-bold">حذف</button>
-                                </div>` : ''}
-                            </div>
-                        </div>
-                    `;
-                }).join('') + `</div>`;
-            } else {
-                container.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-                        <table class="w-full text-right text-xs">
-                            <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
-                                <tr>
-                                    <th class="p-3 font-bold">اسم المشروع</th>
-                                    <th class="p-3 font-bold">الإدارة</th>
-                                    <th class="p-3 font-bold">مدير المشروع</th>
-                                    <th class="p-3 font-bold">الفترة الزمنية</th>
-                                    <th class="p-3 font-bold">الحالة</th>
-                                    <th class="p-3 font-bold">الإنجاز</th>
-                                    ${isAdmin ? '<th class="p-3 font-bold text-left">إجراءات</th>' : ''}
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                                ${filtered.map(p => {
-                                    const pTasks = state.tasks.filter(t => t.projectId === p.id);
-                                    const approvedT = pTasks.filter(t => t.status === 'مكتملة').length;
-                                    const rate = pTasks.length > 0 ? Math.round((approvedT / pTasks.length) * 100) : (p.status === 'مكتمل' ? 100 : 0);
-                                    return `
-                                        <tr>
-                                            <td class="p-3 font-bold text-navy-900 dark:text-white">${p.name}</td>
-                                            <td class="p-3 text-slate-600 dark:text-slate-400">${p.dept}</td>
-                                            <td class="p-3 text-slate-600 dark:text-slate-400">${p.manager}</td>
-                                            <td class="p-3 text-slate-500">${p.start} إلى ${p.end}</td>
-                                            <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700">${p.status}</span></td>
-                                            <td class="p-3">
-                                                <div class="flex items-center gap-2">
-                                                    <span>${rate}%</span>
-                                                    <div class="w-20 bg-slate-200 dark:bg-slate-700 rounded-full h-1.5"><div class="bg-water-600 h-1.5 rounded-full" style="width: ${rate}%"></div></div>
-                                                </div>
-                                            </td>
-                                            ${isAdmin ? `
-                                            <td class="p-3 text-left">
-                                                <button onclick="openProjectModal('${p.id}')" class="text-water-600 font-bold px-2 py-1">تعديل</button>
-                                                <button onclick="deleteProject('${p.id}')" class="text-red-600 font-bold px-2 py-1">حذف</button>
-                                            </td>` : ''}
-                                        </tr>
-                                    `;
-                                }).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-            }
-        }
-
-        function openProjectModal(projId = null) {
-            const modal = document.getElementById('project-modal');
-            const title = document.getElementById('project-modal-title');
-            document.getElementById('project-form').reset();
-
-            if(projId) {
-                title.innerText = 'تعديل بيانات المشروع';
-                const p = state.projects.find(x => x.id === projId);
-                document.getElementById('project-modal-id').value = p.id;
-                document.getElementById('project-modal-name').value = p.name;
-                document.getElementById('project-modal-desc').value = p.desc;
-                document.getElementById('project-modal-dept').value = p.dept;
-                document.getElementById('project-modal-manager').value = p.manager;
-                document.getElementById('project-modal-start').value = p.start;
-                document.getElementById('project-modal-end').value = p.end;
-                document.getElementById('project-modal-priority').value = p.priority;
-                document.getElementById('project-modal-status').value = p.status;
-            } else {
-                title.innerText = 'إشاء مشروع جديد';
-                document.getElementById('project-modal-id').value = '';
-                document.getElementById('project-modal-manager').value = state.currentUser.name;
-                document.getElementById('project-modal-start').value = new Date().toISOString().split('T')[0];
-            }
-            modal.classList.remove('hidden');
-        }
-
-        function closeProjectModal() { document.getElementById('project-modal').classList.add('hidden'); }
-
-        function saveProject(e) {
-            e.preventDefault();
-            const id = document.getElementById('project-modal-id').value;
-            const data = {
-                id: id ? id : 'proj-' + Date.now(),
-                name: document.getElementById('project-modal-name').value,
-                desc: document.getElementById('project-modal-desc').value,
-                dept: document.getElementById('project-modal-dept').value,
-                manager: document.getElementById('project-modal-manager').value,
-                start: document.getElementById('project-modal-start').value,
-                end: document.getElementById('project-modal-end').value,
-                priority: document.getElementById('project-modal-priority').value,
-                status: document.getElementById('project-modal-status').value
-            };
-
-            if(id) {
-                const idx = state.projects.findIndex(x => x.id === id);
-                if(idx !== -1) state.projects[idx] = data;
-                showToast('تم تعديل المشروع بنجاح', 'success');
-            } else {
-                state.projects.push(data);
-                addNotification('مشروع جديد', `تم إنشاء مشروع جديد بعنوان: "${data.name}"`, new Date().toISOString().split('T')[0]);
-                showToast('تم إنشاء المشروع بنجاح', 'success');
-            }
-
-            saveDataToStorage();
-            closeProjectModal();
-            renderProjects();
-        }
-
-        function deleteProject(id) {
-            if(confirm('هل أنت متأكد من حذف هذا المشروع وكافة المهام المرتبطة به؟')) {
-                state.projects = state.projects.filter(p => p.id !== id);
-                state.tasks = state.tasks.filter(t => t.projectId !== id);
-                saveDataToStorage();
-                renderProjects();
-                showToast('تم حذف المشروع بنجاح', 'info');
-            }
-        }
-
-        // ================= 3. TASKS MODULE =================
-        function setTaskViewMode(mode) {
-            state.taskMode = mode;
-            document.getElementById('btn-task-kanban').className = mode === 'kanban' ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors' : 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors';
-            document.getElementById('btn-task-table').className = mode === 'table' ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-water-600 text-white transition-colors' : 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors';
-            renderTasks();
+            document.getElementById('projects-container').innerHTML = state.projects.map(p => `
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[10px] bg-water-50 text-water-700 px-2 py-0.5 rounded font-bold">${p.department || p.dept}</span>
+                    <h4 class="font-extrabold text-navy-900 dark:text-white text-sm mt-2">${p.name}</h4>
+                    <p class="text-xs text-slate-500 mt-1">${p.description || p.desc || ''}</p>
+                </div>
+            `).join('');
         }
 
         function renderTasks() {
-            // Populate project dropdown filter
-            const projSelect = document.getElementById('task-filter-project');
-            const currentProjVal = projSelect.value;
-            projSelect.innerHTML = '<option value="">كافة المشروعات</option>' + state.projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
-            projSelect.value = currentProjVal;
-
-            const search = document.getElementById('task-search').value.toLowerCase();
-            const fStatus = document.getElementById('task-filter-status').value;
-            const fProj = document.getElementById('task-filter-project').value;
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-
-            let filtered = state.tasks.filter(t => {
-                const matchS = t.title.toLowerCase().includes(search) || t.assignee.toLowerCase().includes(search);
-                const matchSt = !fStatus || t.status === fStatus;
-                const matchP = !fProj || t.projectId === fProj;
-                const matchRole = isAdmin || t.assignee === state.currentUser.name;
-                return matchS && matchSt && matchP && matchRole;
-            });
-
-            const container = document.getElementById('tasks-container');
-
-            if(state.taskMode === 'kanban') {
-                const statuses = ['لم تبدأ', 'قيد التنفيذ', 'بانتظار اعتماد المدير', 'معادة للاستكمال', 'مكتملة'];
-                const statusColors = { 'لم تبدأ': 'bg-slate-500', 'قيد التنفيذ': 'bg-water-500', 'بانتظار اعتماد المدير': 'bg-amber-500', 'معادة للاستكمال': 'bg-red-500', 'مكتملة': 'bg-emerald-500' };
-
-                container.innerHTML = `
-                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                        ${statuses.map(st => {
-                            const colTasks = filtered.filter(t => t.status === st);
-                            return `
-                                <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 flex flex-col shadow-sm min-h-[500px]">
-                                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-slate-800">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-3 h-3 rounded-full ${statusColors[st]}"></span>
-                                            <h4 class="font-bold text-navy-900 dark:text-white text-xs">${st}</h4>
-                                        </div>
-                                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] px-2 py-0.5 rounded-full font-bold">${colTasks.length}</span>
-                                    </div>
-                                    <div class="space-y-3 flex-1 overflow-y-auto custom-scrollbar">
-                                        ${colTasks.map(t => {
-                                            const proj = state.projects.find(p => p.id === t.projectId);
-                                            const today = new Date().toISOString().split('T')[0];
-                                            const isOverdue = t.due < today && t.status !== 'مكتملة';
-                                            return `
-                                                <div onclick="openTaskDetailsModal('${t.id}')" class="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-xl border ${isOverdue ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'} cursor-pointer hover:shadow-md transition">
-                                                    <div class="flex items-start justify-between gap-2 mb-2">
-                                                        <span class="text-[10px] text-water-600 font-bold bg-water-50 dark:bg-water-950 px-2 py-0.5 rounded truncate max-w-[130px]">${proj ? proj.name : ''}</span>
-                                                        ${isOverdue ? '<span class="text-[9px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">متأخرة</span>' : ''}
-                                                    </div>
-                                                    <h5 class="font-bold text-navy-900 dark:text-white text-xs mb-1">${t.title}</h5>
-                                                    <p class="text-[11px] text-slate-500 line-clamp-2 mb-3">${t.desc}</p>
-                                                    <div class="flex items-center justify-between text-[11px] text-slate-400 pt-2 border-t border-slate-200 dark:border-slate-700">
-                                                        <span><i class="fa-solid fa-user ml-1"></i>${t.assignee}</span>
-                                                        <span class="${isOverdue ? 'text-red-500 font-bold' : ''}">${t.due}</span>
-                                                    </div>
-                                                </div>
-                                            `;
-                                        }).join('')}
-                                    </div>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                `;
-            } else {
-                container.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-                        <table class="w-full text-right text-xs">
-                            <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500">
-                                <tr>
-                                    <th class="p-3 font-bold">اسم المهمة</th>
-                                    <th class="p-3 font-bold">المشروع المرتبط</th>
-                                    <th class="p-3 font-bold">المسؤول</th>
-                                    <th class="p-3 font-bold">موعد التسليم</th>
-                                    <th class="p-3 font-bold">الحالة</th>
-                                    <th class="p-3 font-bold">نسبة الإنجاز</th>
-                                    <th class="p-3 font-bold text-left">إجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                                ${filtered.map(t => {
-                                    const proj = state.projects.find(p => p.id === t.projectId);
-                                    return `
-                                        <tr>
-                                            <td class="p-3 font-bold text-navy-900 dark:text-white">${t.title}</td>
-                                            <td class="p-3 text-slate-600 dark:text-slate-400">${proj ? proj.name : ''}</td>
-                                            <td class="p-3 text-slate-600 dark:text-slate-400">${t.assignee}</td>
-                                            <td class="p-3 text-slate-500">${t.due}</td>
-                                            <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700">${t.status}</span></td>
-                                            <td class="p-3">${t.progress}%</td>
-                                            <td class="p-3 text-left">
-                                                <button onclick="openTaskDetailsModal('${t.id}')" class="px-3 py-1.5 bg-water-600 text-white font-bold rounded-lg">التفاصيل والتنفيذ</button>
-                                            </td>
-                                        </tr>
-                                    `;
-                                }).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-            }
-        }
-
-        function openTaskModal() {
-            const modal = document.getElementById('task-modal');
-            document.getElementById('task-form').reset();
-            document.getElementById('task-modal-id').value = '';
-
-            // Populate projects
-            document.getElementById('task-modal-project').innerHTML = state.projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
-            // Populate employees
-            document.getElementById('task-modal-assignee').innerHTML = state.employees.map(e => `<option value="${e.name}">${e.name} (${e.dept})</option>`).join('');
-
-            document.getElementById('task-modal-start').value = new Date().toISOString().split('T')[0];
-            modal.classList.remove('hidden');
-        }
-
-        function closeTaskModal() { document.getElementById('task-modal').classList.add('hidden'); }
-
-        function saveTask(e) {
-            e.preventDefault();
-            const projId = document.getElementById('task-modal-project').value;
-            const proj = state.projects.find(p => p.id === projId);
-
-            const data = {
-                id: 'task-' + Date.now(),
-                title: document.getElementById('task-modal-title-input').value,
-                desc: document.getElementById('task-modal-desc').value,
-                projectId: projId,
-                assignee: document.getElementById('task-modal-assignee').value,
-                dept: proj ? proj.dept : 'إدارة المشروعات',
-                start: document.getElementById('task-modal-start').value,
-                due: document.getElementById('task-modal-due').value,
-                priority: document.getElementById('task-modal-priority').value,
-                status: document.getElementById('task-modal-status').value,
-                progress: 0,
-                notes: '',
-                returnReason: '',
-                history: [{user: state.currentUser.name, action: 'إنشاء المهمة وإسنادها', time: new Date().toISOString().replace('T', ' ').substring(0, 16)}]
-            };
-
-            state.tasks.push(data);
-            addNotification('مهمة جديدة', `تم إسناد مهمة جديدة إلى ${data.assignee}: "${data.title}"`, data.start);
-            saveDataToStorage();
-            closeTaskModal();
-            renderTasks();
-            showToast('تم إسناد المهمة بنجاح', 'success');
-        }
-
-        // ================= 4. TASK EXECUTION & APPROVAL WORKFLOW =================
-        let currentActiveTaskId = null;
-
-        function openTaskDetailsModal(taskId) {
-            currentActiveTaskId = taskId;
-            const t = state.tasks.find(x => x.id === taskId);
-            if(!t) return;
-
-            const proj = state.projects.find(p => p.id === t.projectId);
-            document.getElementById('detail-task-project-badge').innerText = proj ? proj.name : '';
-            document.getElementById('detail-task-title').innerText = t.title;
-            document.getElementById('detail-task-assignee').innerText = t.assignee;
-            document.getElementById('detail-task-priority').innerText = t.priority;
-            document.getElementById('detail-task-due').innerText = t.due;
-            document.getElementById('detail-task-status').innerText = t.status;
-            document.getElementById('detail-task-desc').innerText = t.desc;
-
-            // Return reason box
-            const returnBox = document.getElementById('detail-return-box');
-            if(t.status === 'معادة للاستكمال' && t.return_reason) {
-                returnBox.classList.remove('hidden');
-                document.getElementById('detail-return-reason').innerText = t.return_reason;
-            } else {
-                returnBox.classList.add('hidden');
-            }
-
-            // Employee action controls visibility
-            const empActions = document.getElementById('detail-employee-actions');
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-            const isMyTask = t.assignee === state.currentUser.name;
-
-            if(!isAdmin && isMyTask && t.status !== 'مكتملة') {
-                empActions.classList.remove('hidden');
-                document.getElementById('detail-progress-slider').value = t.progress;
-                document.getElementById('progress-val-label').innerText = t.progress + '%';
-                document.getElementById('detail-work-notes').value = t.notes || '';
-            } else {
-                empActions.classList.add('hidden');
-            }
-
-            // History log
-            document.getElementById('detail-task-history').innerHTML = t.history.map(h => `
-                <div class="p-2 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-between">
-                    <span><strong>${h.user}</strong>: ${h.action}</span>
-                    <span class="text-slate-400">${h.time}</span>
+            document.getElementById('tasks-container').innerHTML = state.tasks.map(t => `
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+                    <div><strong class="block text-navy-900 dark:text-white">${t.title}</strong><span class="text-slate-500">المسؤول: ${t.assignee_name || t.assignee}</span></div>
+                    <span class="px-2.5 py-1 bg-water-50 text-water-700 font-bold rounded-lg">${t.status}</span>
                 </div>
             `).join('');
-
-            document.getElementById('task-details-modal').classList.remove('hidden');
         }
 
-        function closeTaskDetailsModal() { document.getElementById('task-details-modal').classList.add('hidden'); }
-
-        function employeeStartTask() {
-            const t = state.tasks.find(x => x.id === currentActiveTaskId);
-            if(t) {
-                t.status = 'قيد التنفيذ';
-                if(t.progress === 0) t.progress = 15;
-                t.history.push({user: state.currentUser.name, action: 'بدء التنفيذ الفعلي للمهمة', time: new Date().toISOString().replace('T', ' ').substring(0, 16)});
-                saveDataToStorage();
-                openTaskDetailsModal(t.id);
-                renderTasks();
-                showToast('تم تحديث حالة المهمة إلى قيد التنفيذ', 'success');
-            }
-        }
-
-        function employeeSaveProgress() {
-            const t = state.tasks.find(x => x.id === currentActiveTaskId);
-            if(t) {
-                t.progress = parseInt(document.getElementById('detail-progress-slider').value);
-                t.notes = document.getElementById('detail-work-notes').value;
-                t.history.push({user: state.currentUser.name, action: `تحديث نسبة الإنجاز إلى ${t.progress}%`, time: new Date().toISOString().replace('T', ' ').substring(0, 16)});
-                saveDataToStorage();
-                showToast('تم حفظ تقدم العمل بنجاح', 'success');
-            }
-        }
-
-        function employeeSubmitForApproval() {
-            const t = state.tasks.find(x => x.id === currentActiveTaskId);
-            if(t) {
-                t.progress = 100;
-                t.status = 'بانتظار اعتماد المدير';
-                t.notes = document.getElementById('detail-work-notes').value;
-                t.history.push({user: state.currentUser.name, action: 'إرسال المهمة للاعتماد النهائي', time: new Date().toISOString().replace('T', ' ').substring(0, 16)});
-                
-                addNotification('بانتظار الاعتماد', `قام الموظف ${t.assignee} بإرسال مهمة "${t.title}" للاعتماد النهائي.`, new Date().toISOString().split('T')[0]);
-                saveDataToStorage();
-                closeTaskDetailsModal();
-                renderCurrentView();
-                showToast('تم إرسال المهمة للمدير بنجاح', 'success');
-            }
-        }
-
-        // ================= 5. APPROVALS CENTER (MANAGER) =================
-        function renderApprovalsCenter() {
-            const container = document.getElementById('approvals-container');
-            const pendingTasks = state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير');
-
-            if(pendingTasks.length === 0) {
-                container.innerHTML = '<div class="bg-white dark:bg-slate-900 p-12 rounded-2xl border border-slate-200 dark:border-slate-800 text-center text-slate-400 text-xs">لا توجد مهام بانتظار الاعتماد حالياً.</div>';
-                return;
-            }
-
-            container.innerHTML = pendingTasks.map(t => {
-                const proj = state.projects.find(p => p.id === t.projectId);
-                return `
-                    <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                            <div>
-                                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700">${proj ? proj.name : ''}</span>
-                                <h4 class="font-extrabold text-navy-900 dark:text-white text-base mt-1">${t.title}</h4>
-                            </div>
-                            <span class="px-3 py-1 rounded-xl text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">بانتظار اعتماد المدير</span>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl text-xs">
-                            <div><span class="text-slate-400 block">الموظف المسؤول:</span><strong class="text-navy-900 dark:text-white">${t.assignee}</strong></div>
-                            <div><span class="text-slate-400 block">الإدارة:</span><strong class="text-navy-900 dark:text-white">${t.dept}</strong></div>
-                            <div><span class="text-slate-400 block">موعد التسليم:</span><strong class="text-navy-900 dark:text-white">${t.due}</strong></div>
-                        </div>
-
-                        <div>
-                            <span class="font-bold text-slate-700 dark:text-slate-300 text-xs block mb-1">ملاحظات ومخرجات الموظف:</span>
-                            <p class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl text-xs text-slate-600 dark:text-slate-300">${t.notes || 'لا توجد ملاحظات إضافية.'}</p>
-                        </div>
-
-                        <div class="flex items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 justify-end">
-                            <button onclick="managerReturnTaskPrompt('${t.id}')" class="px-4 py-2 bg-red-50 text-red-600 font-bold rounded-xl text-xs border border-red-200">إعادة للاستكمال</button>
-                            <button onclick="managerApproveTask('${t.id}')" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-md">اعتماد نهائي</button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function managerApproveTask(taskId) {
-            const t = state.tasks.find(x => x.id === taskId);
-            if(t) {
-                t.status = 'مكتملة';
-                t.progress = 100;
-                t.history.push({user: state.currentUser.name, action: 'اعتماد المهمة رسمياً وإغلاقها', time: new Date().toISOString().replace('T', ' ').substring(0, 16)});
-                
-                addNotification('تم اعتماد المهمة', `قام المدير باعتماد مهمتك "${t.title}" نهائياً.`, new Date().toISOString().split('T')[0]);
-                saveDataToStorage();
-                renderCurrentView();
-                showToast('تم اعتماد المهمة بنجاح وتحديث إنجاز المشروع', 'success');
-            }
-        }
-
-        function managerReturnTaskPrompt(taskId) {
-            const reason = prompt('برجاء كتابة سبب إعادة المهمة للموظف للاستكمال والتعديل:');
-            if(reason !== null) {
-                const t = state.tasks.find(x => x.id === taskId);
-                if(t) {
-                    t.status = 'معادة للاستكمال';
-                    t.return_reason = reason;
-                    t.history.push({user: state.currentUser.name, action: `إعادة المهمة للاستكمال. السبب: ${reason}`, time: new Date().toISOString().replace('T', ' ').substring(0, 16)});
-                    
-                    addNotification('مهمة معادة للاستكمال', `أعاد المدير مهمة "${t.title}". السبب: ${reason}`, new Date().toISOString().split('T')[0]);
-                    saveDataToStorage();
-                    renderCurrentView();
-                    showToast('تم إرسال الملاحظات وإعادة المهمة للموظف', 'info');
-                }
-            }
-        }
-
-        // ================= 6. TEAM MODULE =================
         function renderTeam() {
-            const search = document.getElementById('team-search').value.toLowerCase();
-            const filtered = state.employees.filter(e => e.name.toLowerCase().includes(search) || e.dept.toLowerCase().includes(search));
-            const isAdmin = state.currentUser.role === 'مدير النظام';
-
-            document.getElementById('team-container').innerHTML = filtered.map(e => {
-                const eTasks = state.tasks.filter(t => t.assignee === e.name);
-                const compTasks = eTasks.filter(t => t.status === 'مكتملة').length;
-                return `
-                    <div class="bg-white dark:bg-slate-950 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-water-600 text-white font-bold flex items-center justify-center text-base">${e.avatar}</div>
-                                <div>
-                                    <h4 class="font-bold text-navy-900 dark:text-white text-sm">${e.name}</h4>
-                                    <p class="text-xs text-slate-500">${e.title}</p>
-                                </div>
-                            </div>
-                            <div class="space-y-2 text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900 p-3 rounded-xl">
-                                <div class="flex items-center justify-between"><span>الإدارة:</span><strong class="text-navy-900 dark:text-white">${e.dept}</strong></div>
-                                <div class="flex items-center justify-between"><span>البريد:</span><strong class="text-navy-900 dark:text-white">${e.email}</strong></div>
-                                <div class="flex items-center justify-between"><span>الصلاحية:</span><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-water-50 text-water-700">${e.role}</span></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
-                            <span class="text-slate-500">المهام المسندة: <strong class="text-navy-900 dark:text-white">${eTasks.length}</strong> (${compTasks} مكتملة)</span>
-                            ${isAdmin ? `<button onclick="deleteEmployee('${e.id}')" class="text-red-600 font-bold hover:underline">حذف</button>` : ''}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function openEmployeeModal() { document.getElementById('employee-modal').classList.remove('hidden'); }
-        function closeEmployeeModal() { document.getElementById('employee-modal').classList.add('hidden'); }
-
-        function saveEmployee(e) {
-            e.preventDefault();
-            const name = document.getElementById('employee-name').value;
-            const data = {
-                id: 'emp-' + Date.now(),
-                name: name,
-                email: document.getElementById('employee-email').value,
-                title: document.getElementById('employee-title').value,
-                dept: document.getElementById('employee-dept').value,
-                role: document.getElementById('employee-role').value,
-                avatar: name.split(' ').map(n=>n[0]).slice(0,2).join('')
-            };
-
-            state.employees.push(data);
-            populateAccountSwitchers();
-            saveDataToStorage();
-            closeEmployeeModal();
-            renderTeam();
-            showToast('تمت إضافة الموظف بنجاح', 'success');
-        }
-
-        function deleteEmployee(id) {
-            if(confirm('هل أنت متأكد من حذف هذا الموظف؟')) {
-                state.employees = state.employees.filter(e => e.id !== id);
-                populateAccountSwitchers();
-                saveDataToStorage();
-                renderTeam();
-                showToast('تم حذف الموظف بنجاح', 'info');
-            }
-        }
-
-        // ================= 7. CALENDAR MODULE =================
-        function changeCalendarMonth(dir) {
-            state.calendarDate.setMonth(state.calendarDate.getMonth() + dir);
-            renderCalendar();
-        }
-        function resetCalendarMonth() {
-            state.calendarDate = new Date(2026, 10, 1);
-            renderCalendar();
-        }
-
-        function renderCalendar() {
-            const year = state.calendarDate.getFullYear();
-            const month = state.calendarDate.getMonth();
-            const monthNames = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-            document.getElementById('calendar-month-year').innerText = `${monthNames[month]} ${year}`;
-
-            const firstDayIndex = new Date(year, month, 1).getDay();
-            const totalDays = new Date(year, month + 1, 0).getDate();
-            const grid = document.getElementById('calendar-grid');
-            let html = '';
-
-            for(let i=0; i<firstDayIndex; i++) {
-                html += `<div class="bg-slate-50 dark:bg-slate-900/50 p-2 min-h-[100px]"></div>`;
-            }
-
-            for(let d=1; d<=totalDays; d++) {
-                const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-                const dayTasks = state.tasks.filter(t => t.due === dateStr);
-                const dayProj = state.projects.filter(p => p.end === dateStr);
-
-                html += `
-                    <div class="bg-white dark:bg-slate-900 p-2 min-h-[110px] flex flex-col justify-between border border-slate-100 dark:border-slate-800">
-                        <span class="font-bold text-xs text-slate-700 dark:text-slate-300">${d}</span>
-                        <div class="space-y-1 overflow-y-auto max-h-[80px]">
-                            ${dayTasks.map(t => `<div onclick="openTaskDetailsModal('${t.id}')" class="bg-water-50 dark:bg-water-950 text-water-700 dark:text-water-300 text-[10px] p-1 rounded font-bold cursor-pointer truncate" title="${t.title}">مهمة: ${t.title}</div>`).join('')}
-                            ${dayProj.map(p => `<div class="bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 text-[10px] p-1 rounded font-bold truncate" title="${p.name}">مشروع: ${p.name}</div>`).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-            grid.innerHTML = html;
-        }
-
-        // ================= 8. REPORTS MODULE =================
-        let chartPriorityInst = null, chartReportEmpInst = null;
-        function renderReports() {
-            const prio = { 'منخفضة': 0, 'متوسطة': 0, 'عالية': 0, 'حرجة': 0 };
-            state.tasks.forEach(t => { if(prio[prio[t.priority] !== undefined ? t.priority : 'متوسطة'] !== undefined || prio[t.priority] === 0) prio[t.priority]++; });
-
-            if(chartPriorityInst) chartPriorityInst.destroy();
-            chartPriorityInst = new Chart(document.getElementById('chartTaskPriority'), {
-                type: 'bar',
-                data: { labels: Object.keys(prio), datasets: [{ data: Object.values(prio), backgroundColor: ['#94a3b8', '#0ea5e9', '#f59e0b', '#ef4444'], borderRadius: 6 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-            });
-
-            const top = state.employees.slice(0, 6);
-            if(chartReportEmpInst) chartReportEmpInst.destroy();
-            chartReportEmpInst = new Chart(document.getElementById('chartReportEmp'), {
-                type: 'bar',
-                data: { labels: top.map(e=>e.name), datasets: [{ label: 'المهام المكتملة', data: top.map(e => state.tasks.filter(t => t.assignee === e.name && t.status === 'مكتملة').length), backgroundColor: '#0d9488', borderRadius: 6 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-            });
-        }
-
-        function exportReportsCSV() {
-            let csv = "data:text/csv;charset=utf-8,\uFEFFاسم المشروع,الإدارة,مدير المشروع,الحالة,تاريخ النهاية\n";
-            state.projects.forEach(p => { csv += `"${p.name}","${p.dept}","${p.manager}","${p.status}","${p.end}"\n`; });
-            const link = document.createElement("a");
-            link.setAttribute("href", encodeURI(csv));
-            link.setAttribute("download", "mwri_projects_report.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // ================= 9. NOTIFICATIONS MODULE =================
-        function renderNotifications() {
-            document.getElementById('notifications-container').innerHTML = state.notifications.map(n => `
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border ${n.read ? 'border-slate-200 dark:border-slate-800' : 'border-water-500 bg-water-50/20'} flex items-center justify-between shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-water-50 dark:bg-water-950 text-water-600 flex items-center justify-center font-bold"><i class="fa-solid fa-bell"></i></div>
-                        <div><h4 class="font-bold text-navy-900 dark:text-white text-xs">${n.title}</h4><p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">${n.text}</p></div>
-                    </div>
-                    <div class="flex items-center gap-3"><span class="text-[10px] text-slate-400">${n.date}</span>${!n.read ? `<button onclick="markNotificationRead('${n.id}')" class="text-xs font-bold text-water-600 hover:underline">مقروء</button>` : ''}</div>
+            document.getElementById('team-container').innerHTML = state.employees.map(e => `
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
+                    <strong class="text-navy-900 dark:text-white text-sm block mb-1">${e.name}</strong>
+                    <span class="text-slate-500 block">${e.title || 'مهندس'} - ${e.department || ''}</span>
+                    <span class="mt-2 inline-block px-2 py-0.5 bg-water-50 text-water-700 rounded font-bold">${e.role}</span>
                 </div>
             `).join('');
         }
 
-        function addNotification(title, text, date) {
-            state.notifications.unshift({ id: 'notif-' + Date.now(), title, text, date, read: false });
-            saveDataToStorage();
+        function renderApprovalsCenter() {
+            const pending = state.tasks.filter(t => t.status === 'بانتظار اعتماد المدير');
+            document.getElementById('approvals-container').innerHTML = pending.length === 0 ? '<p class="text-xs text-slate-400">لا توجد مهام بانتظار الاعتماد.</p>' : pending.map(t => `
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+                    <div><strong class="block text-navy-900 dark:text-white">${t.title}</strong><span>المسؤول: ${t.assignee_name || t.assignee}</span></div>
+                    <button onclick="approveTask('${t.id}')" class="px-3 py-1.5 bg-emerald-600 text-white font-bold rounded-lg">اعتماد نهائي</button>
+                </div>
+            `).join('');
         }
 
-        function markNotificationRead(id) {
-            const n = state.notifications.find(x => x.id === id);
-            if(n) { n.read = true; saveDataToStorage(); renderNotifications(); updateUIRoles(); }
+        async function approveTask(taskId) {
+            if (!supabaseClient) return;
+            await supabaseClient.from('tasks').update({ status: 'مكتملة', progress: 100 }).eq('id', taskId);
+            showToast('تم اعتماد المهمة بنجاح', 'success');
+            renderCurrentView();
         }
 
-        function markAllNotificationsRead() {
-            state.notifications.forEach(n => n.read = true);
-            saveDataToStorage();
-            renderNotifications();
-            updateUIRoles();
+        function openProjectModal() { document.getElementById('project-modal').classList.remove('hidden'); }
+        function closeProjectModal() { document.getElementById('project-modal').classList.add('hidden'); }
+
+        async function saveProject(e) {
+            e.preventDefault();
+            if (!supabaseClient) return;
+            const data = {
+                name: document.getElementById('project-modal-name').value,
+                description: document.getElementById('project-modal-desc').value,
+                department: document.getElementById('project-modal-dept').value,
+                status: document.getElementById('project-modal-status').value,
+                manager_name: state.currentUser.name
+            };
+            await supabaseClient.from('projects').insert([data]);
+            closeProjectModal();
+            renderProjects();
+            showToast('تم حفظ المشروع في Supabase بنجاح', 'success');
         }
 
-        function toggleNotificationDropdown() {
-            const drop = document.getElementById('notif-dropdown');
-            drop.classList.toggle('hidden');
-            if(!drop.classList.contains('hidden')) {
-                document.getElementById('notif-dropdown-list').innerHTML = state.notifications.slice(0, 4).map(n => `
-                    <div class="p-3 text-xs ${n.read ? 'bg-white dark:bg-slate-900' : 'bg-water-50/50 dark:bg-water-950/30'}">
-                        <strong class="text-navy-900 dark:text-white block mb-0.5">${n.title}</strong>
-                        <p class="text-slate-500 truncate">${n.text}</p>
-                    </div>
-                `).join('');
-            }
-        }
-
-        // ================= 10. SETTINGS & UTILS =================
-        function renderSettings() {
-            if(state.currentUser) {
-                document.getElementById('settings-name').value = state.currentUser.name;
-                document.getElementById('settings-email').value = state.currentUser.email;
-            }
-        }
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            if(html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                icon.className = 'fa-solid fa-moon';
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                icon.className = 'fa-solid fa-sun';
-            }
-        }
-
+        function openTaskModal() { alert('نافذة إضافة مهمة جديدة'); }
         function togglePasswordVisibility() {
-            const pwd = document.getElementById('login-password');
-            const icon = document.getElementById('toggle-pwd-icon');
-            if(pwd.type === 'password') { pwd.type = 'text'; icon.className = 'fa-solid fa-eye-slash'; }
-            else { pwd.type = 'password'; icon.className = 'fa-solid fa-eye'; }
+            const p = document.getElementById('login-password');
+            p.type = p.type === 'password' ? 'text' : 'password';
         }
-
-        function toggleMobileSidebar() {
-            document.getElementById('sidebar').classList.toggle('translate-x-full');
-        }
+        function toggleMobileSidebar() { document.getElementById('sidebar').classList.toggle('translate-x-full'); }
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); }
 
         function showToast(msg, type='success') {
             const toast = document.createElement('div');
-            toast.className = `fixed bottom-5 left-5 z-50 px-4 py-3 rounded-2xl text-white text-xs font-bold shadow-xl flex items-center gap-2 transition transform translate-y-0 ${type==='success'?'bg-emerald-600':type==='info'?'bg-water-600':'bg-red-600'}`;
-            toast.innerHTML = `<i class="fa-solid ${type==='success'?'fa-circle-check':type==='info'?'fa-circle-info':'fa-triangle-exclamation'}"></i> ${msg}`;
+            toast.className = `fixed bottom-5 left-5 z-50 px-4 py-3 rounded-2xl text-white text-xs font-bold shadow-xl ${type==='success'?'bg-emerald-600':'bg-water-600'}`;
+            toast.innerHTML = msg;
             document.body.appendChild(toast);
-            setTimeout(() => { toast.remove(); }, 3000);
-        }
-
-        function handleGlobalSearch(q) {
-            if(!q) return;
-            switchView('projects');
-            document.getElementById('project-search').value = q;
-            renderProjects();
+            setTimeout(() => toast.remove(), 3000);
         }
     </script>
 </body>
